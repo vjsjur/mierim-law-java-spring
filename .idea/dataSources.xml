@@ -10,5 +10,12 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/mierim</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="mierimlaw_dev@150.230.84.220" uuid="22736a36-c51d-41b4-ba2f-739e3aad832b">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://150.230.84.220:5432/mierimlaw_dev</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
