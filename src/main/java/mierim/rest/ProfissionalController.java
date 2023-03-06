@@ -27,7 +27,7 @@ public class ProfissionalController {
     }
 
     @GetMapping("{id}")
-    public Profissional acharPorId(@PathVariable Integer id){
+    public Profissional acharPorId(@PathVariable Long id){
         return profissionalRepository
                 .findById(id)
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Profissional não Encontrado"));
@@ -42,7 +42,7 @@ public class ProfissionalController {
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void atualizarDadosProfissional(@PathVariable Integer id, @RequestBody Profissional profissionalAtualizado) {
+    public void atualizarDadosProfissional(@PathVariable Long id, @RequestBody Profissional profissionalAtualizado) {
         profissionalRepository
                 .findById(id)
                 .map(profissional -> {
@@ -56,7 +56,7 @@ public class ProfissionalController {
 
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void excluir(@PathVariable Integer id){
+    public void excluir(@PathVariable Long id){
         profissionalRepository
                 .findById(id)
                 .map(profissional -> {
