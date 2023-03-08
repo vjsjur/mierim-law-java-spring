@@ -10,11 +10,6 @@ import javax.persistence.Id;
 
 import javax.validation.constraints.NotEmpty;
 
-/**
- * @author Vagner J Santos (VJS)
- * @Date 20190921
- * @version 2020.0.0
- */
 @Entity(name = "sis_perfil")
 public class Sis_Perfil implements Serializable {
 

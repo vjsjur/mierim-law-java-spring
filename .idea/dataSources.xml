@@ -17,11 +17,11 @@
       <jdbc-url>jdbc:postgresql://150.230.84.220:5432/mierimlaw_dev</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="doro9uuusg448@ec2-54-160-109-68.compute-1.amazonaws.com" uuid="5ed11ff9-8e07-4358-b01e-3f77fe808f6e">
+    <data-source source="LOCAL" name="ec2-50-17-21-26.compute-1.amazonaws.com" uuid="5ed11ff9-8e07-4358-b01e-3f77fe808f6e">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://ec2-54-160-109-68.compute-1.amazonaws.com:5432/doro9uuusg448</jdbc-url>
+      <jdbc-url>jdbc:postgresql://ec2-50-17-21-26.compute-1.amazonaws.com:5432/d4sd7eff4u9khi</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
