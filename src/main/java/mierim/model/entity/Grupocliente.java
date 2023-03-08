@@ -5,6 +5,11 @@
  */
 package mierim.model.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -13,11 +18,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-/**
- * @author Vagner J Santos (VJS)
- * @Date 20190921
- * @version 2020.0.0
- */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity(name = "cad_cliente_grupo")
 public class Grupocliente implements Serializable{
     @Id
@@ -29,51 +33,6 @@ public class Grupocliente implements Serializable{
     public String nome;
     private String deletado  = "2";
     public String status;
-
-    
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-
-    
-    
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDeletado() {
-        return deletado;
-    }
-
-    public void setDeletado(String deletado) {
-        this.deletado = deletado;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
     @Override
     public int hashCode() {
@@ -100,8 +59,4 @@ public class Grupocliente implements Serializable{
         return true;
     }
 
-    
-    
-   
-    
 }

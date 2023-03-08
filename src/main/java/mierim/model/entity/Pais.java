@@ -1,10 +1,10 @@
 package mierim.model.entity;
 
-/**
- * @author Vagner J Santos (VJS)
- * @Date 20190921
- * @version 2020.0.0
- */
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -16,6 +16,10 @@ import javax.persistence.Id;
 
 import javax.validation.constraints.NotEmpty;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity(name = "cad_pais")
 public class Pais implements Serializable {
 
@@ -26,45 +30,10 @@ public class Pais implements Serializable {
     private Integer id;
     @Column(unique = true)
     private String codigo;
-    private String descricao;
-    private String descricao_formal;
-
-    public Pais() {
-
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     @NotEmpty(message = "PREENCHA A DESCRIÇÃO!")
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getDescricao_formal() {
-        return descricao_formal;
-    }
-
-    public void setDescricao_formal(String descricao_formal) {
-        this.descricao_formal = descricao_formal;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
+    private String descricao;
+    private String descricao_formal;
 
     @Override
     public int hashCode() {

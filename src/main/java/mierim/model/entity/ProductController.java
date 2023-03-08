@@ -11,11 +11,6 @@ import java.util.List;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-/**
- *
- * @author vagne
- */
-
 @Controller("productController")
 @Scope("view")
 public class ProductController {

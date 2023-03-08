@@ -1,6 +1,11 @@
 package mierim.model.entity;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Entity;
@@ -10,68 +15,24 @@ import javax.persistence.Id;
 
 import javax.validation.constraints.NotEmpty;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity(name = "sis_perfil")
 public class Sis_Perfil implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @NotEmpty(message = "PREENCHA A DESCRIÇÃO!")
     private String descricao;
+
+    @NotEmpty(message = "PREENCHA O STATUS!")
     private String status = "1";
     private String juridico = "1";
     private String deletado = "2";
-   // @ManyToMany
-   // @JoinTable(name = "jur_ato_gerencial_perfil",
-   //         joinColumns = @JoinColumn(name = "id_perfil"),
-   //         inverseJoinColumns = @JoinColumn(name = "id_ato_gerencial"))
-   // private List<Jur_AtoGerencial> id_ato_gerencial_perfil;
-
-    public Sis_Perfil() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    @NotEmpty(message = "PREENCHA A DESCRIÇÃO!")
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    @NotEmpty(message = "PREENCHA O STATUS!")
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getJuridico() {
-        return juridico;
-    }
-
-    public void setJuridico(String juridico) {
-        this.juridico = juridico;
-    }
-
-    public String getDeletado() {
-        return deletado;
-    }
-
-    public void setDeletado(String deletado) {
-        this.deletado = deletado;
-    }
-
-  
 
     @Override
     public int hashCode() {

@@ -1,9 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mierim.model.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -17,55 +17,21 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- *
- * @author vagne
- */
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity(name = "com_pedido")
 public class Pedido implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-@Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date horario;
     private BigDecimal valor_total;
 
-    
-     public static final String buscarPorCodigo =  "select com_pedido where id = :id";
-
-    
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    
-
-    
-    public Date getHorario() {
-        return horario;
-    }
-
-    public void setHorario(Date horario) {
-        this.horario = horario;
-    }
-
-    public BigDecimal getValor_total() {
-        return valor_total;
-    }
-
-    public void setValor_total(BigDecimal valor_total) {
-        this.valor_total = valor_total;
-    }
-
-
-
-    
+    public static final String buscarPorCodigo =  "select com_pedido where id = :id";
 
     @Override
     public int hashCode() {
