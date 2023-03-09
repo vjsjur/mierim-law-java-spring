@@ -22,8 +22,8 @@ import javax.validation.constraints.NotEmpty;
 @Entity(name = "cad_rel_tipo_relatorio")
 public class TipoRelatorio implements Serializable {
 
-  
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @NotEmpty(message = "PREENCHA O NOME!")
     private String nome;

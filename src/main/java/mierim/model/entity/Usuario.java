@@ -26,10 +26,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.transaction.annotation.Transactional;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+
 @Entity
 @Transactional
 @Inheritance(strategy = InheritanceType.JOINED)
