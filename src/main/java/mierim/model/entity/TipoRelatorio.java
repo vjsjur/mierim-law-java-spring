@@ -1,10 +1,11 @@
 package mierim.model.entity;
 
-/**
- * @author Vagner J Santos (VJS)
- * @Date 20190921
- * @version 2020.0.0
- */
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -14,64 +15,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity(name = "cad_rel_tipo_relatorio")
 public class TipoRelatorio implements Serializable {
 
   
 
     private Integer id;
+    @NotEmpty(message = "PREENCHA O NOME!")
     private String nome;
+    @NotEmpty(message = "PREENCHA A DESCRIÇÃO!")
     private String descricao;
     private String status;
     private String deletado = "2";
-
-    public TipoRelatorio() {
-
-    }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    @NotEmpty(message = "PREENCHA O NOME!")
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    @NotEmpty(message = "PREENCHA A DESCRIÇÃO!")
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getDeletado() {
-        return deletado;
-    }
-
-    public void setDeletado(String deletado) {
-        this.deletado = deletado;
-    }
 
     @Override
     public int hashCode() {

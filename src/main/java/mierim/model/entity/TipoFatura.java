@@ -1,10 +1,9 @@
 package mierim.model.entity;
 
-/**
- * @author Vagner J Santos (VJS)
- * @Date 20190921
- * @version 2020.0.0
- */
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -15,7 +14,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.validation.constraints.NotEmpty;
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity(name = "cad_tipo_fatura")
 public class TipoFatura implements Serializable {
 
@@ -24,61 +26,12 @@ public class TipoFatura implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotEmpty(message = "PREENCHA A DESCRIÇÃO!")
     private String descricao;
+    @NotEmpty(message = "PREENCHA O STATUS!")
     private String status;
     private Date dt_cadastro = new Date();
-       private String deletado  = "2";
-
-    public TipoFatura() {       
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-
-
-    @NotEmpty(message = "PREENCHA A DESCRIÇÃO!")
-    public String getDescricao() {
-        return descricao;
-    }
-
-    
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-     @NotEmpty(message = "PREENCHA O STATUS!")
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-
-    public String getDeletado() {
-        return deletado;
-    }
-
-    public void setDeletado(String deletado) {
-        this.deletado = deletado;
-    }
-
-    public Date getDt_cadastro() {
-        return dt_cadastro;
-    }
-
-    public void setDt_cadastro(Date dt_cadastro) {
-        this.dt_cadastro = dt_cadastro;
-    }
-    
-    
+    private String deletado  = "2";
 
     @Override
     public int hashCode() {

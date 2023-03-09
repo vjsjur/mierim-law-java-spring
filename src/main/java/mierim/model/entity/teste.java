@@ -5,41 +5,17 @@
  */
 package mierim.model.entity;
 
-/**
- *
- * @author vagne
- */
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class teste {
     public String nome;
      public String sobrenome;
 
-    public teste(String nome, String sobrenome) {
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-    }
-
-  
-     
-     
-
- 
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
-     
-     
-    
 }

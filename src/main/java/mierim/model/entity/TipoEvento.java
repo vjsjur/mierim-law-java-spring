@@ -5,10 +5,7 @@
  */
 package mierim.model.entity;
 
-/**
- *
- * @author Administrator
- */
+
 public enum TipoEvento {
     /* TIPO DE EVENTO - CSS */
     PADRAO("Padrão", ""),

@@ -1,5 +1,10 @@
 package mierim.model.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity(name = "cad_tabela_honorario_categoria")
 public class TabelaHonorarioCategoria implements Serializable {
 
@@ -25,57 +34,4 @@ public class TabelaHonorarioCategoria implements Serializable {
     private double valor_hora;
     private String deletado = "2";
 
-    public TabelaHonorarioCategoria() {
-    }
-
-    public TabelaHonorarioCategoria(TabelaHonorario tabelaHonorario, Categoria categoria) {
-        this.tabelaHonorario = tabelaHonorario;
-        this.categoria = categoria;
-      
-    }
-
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-
-    public TabelaHonorario getTabelaHonorario() {
-        return tabelaHonorario;
-    }
-
-    public void setTabelaHonorario(TabelaHonorario tabelaHonorario) {
-        this.tabelaHonorario = tabelaHonorario;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
-
-    public double getValor_hora() {
-        return valor_hora;
-    }
-
-    public void setValor_hora(double valor_hora) {
-        this.valor_hora = valor_hora;
-    }
-
-    public String getDeletado() {
-        return deletado;
-    }
-
-    public void setDeletado(String deletado) {
-        this.deletado = deletado;
-    }
-
-   
-   
 }

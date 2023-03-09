@@ -1,29 +1,22 @@
 package mierim.model.entity;
 
-/**
- *
- * @author Administrator
- */
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class UsuarioFilter implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private String rg;
 	private String cpf;
-	
-	public String getRg() {
-		return rg;
-	}
-	public void setRg(String rg) {
-		this.rg = rg;
-	}
-	public String getCpf() {
-		return cpf;
-	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
+
 	
 }

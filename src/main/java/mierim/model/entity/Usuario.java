@@ -17,70 +17,39 @@ import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.transaction.annotation.Transactional;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Transactional
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Usuario implements Serializable, UserDetails {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private String email;
     private String email_bkp;
+
+    @NotEmpty(message = "IMPORME O LOGIN!")
     private String login;
+
+    @NotEmpty(message = "IMPORME A SENHA!")
     private String senha;
     private boolean ativo;
     private Integer nivel_visao_campo;
 
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    @NotEmpty(message = "IMPORME O LOGIN!")
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public Integer getNivel_visao_campo() {
-        return nivel_visao_campo;
-    }
-
-    public void setNivel_visao_campo(Integer nivel_visao_campo) {
-        this.nivel_visao_campo = nivel_visao_campo;
-    }
-
-    public String getEmail_bkp() {
-        return email_bkp;
-    }
-
-    public void setEmail_bkp(String email_bkp) {
-        this.email_bkp = email_bkp;
-    } 
-    
-
-    @NotEmpty(message = "IMPORME A SENHA!")
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
 
     @Override
     @Transient

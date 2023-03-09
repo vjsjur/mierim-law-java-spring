@@ -1,5 +1,13 @@
 package mierim.model.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+@NoArgsConstructor
+@AllArgsConstructor
 public enum TipoCurso {
 
 	CORDAS("Cordas"),
@@ -8,17 +16,5 @@ public enum TipoCurso {
 	PERCUSSAO("Percussão");
 	
 	private String label;
-	
-	private TipoCurso(String label){
-		this.label = label;
-	}
 
-	public String getLabel() {
-		return label;
-	}
-
-	public void setLabel(String label) {
-		this.label = label;
-	}
-	
 }

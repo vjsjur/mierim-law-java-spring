@@ -1,10 +1,9 @@
 package mierim.model.entity;
 
-/**
- * @author Vagner J Santos (VJS)
- * @Date 20190921
- * @version 2020.0.0
- */
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -15,6 +14,10 @@ import javax.persistence.Id;
 
 import javax.validation.constraints.NotEmpty;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity(name = "cad_tipo_parcela_fixo")
 public class TipoParcelaFixo implements Serializable {
 
@@ -23,61 +26,12 @@ public class TipoParcelaFixo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String descricao;
-    private String status;
-       private String deletado  = "2";
-    private String texto_padrao;
-
-    public TipoParcelaFixo() {       
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-
-
     @NotEmpty(message = "PREENCHA A DESCRIÇÃO!")
-    public String getDescricao() {
-        return descricao;
-    }
-
-    
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-     @NotEmpty(message = "PREENCHA O STATUS!")
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-
-    public String getDeletado() {
-        return deletado;
-    }
-
-    public void setDeletado(String deletado) {
-        this.deletado = deletado;
-    }
-
-    public String getTexto_padrao() {
-        return texto_padrao;
-    }
-
-    public void setTexto_padrao(String texto_padrao) {
-        this.texto_padrao = texto_padrao;
-    }
-    
-    
+    private String descricao;
+    @NotEmpty(message = "PREENCHA O STATUS!")
+    private String status;
+    private String deletado  = "2";
+    private String texto_padrao;
 
     @Override
     public int hashCode() {

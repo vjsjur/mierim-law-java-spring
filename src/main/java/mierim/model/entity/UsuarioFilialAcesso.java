@@ -1,5 +1,10 @@
 package mierim.model.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Entity;
@@ -8,12 +13,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-/**
- *
- * @author Administrator
- */
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 public class UsuarioFilialAcesso implements Serializable {
 
@@ -30,50 +33,6 @@ public class UsuarioFilialAcesso implements Serializable {
     private Escritorio escritorio;
     private boolean acessa;
     private String deletado;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-
-
-    public UsuarioProfessor getUsuarioprofessor() {
-        return usuarioprofessor;
-    }
-
-    public void setUsuarioprofessor(UsuarioProfessor usuarioprofessor) {
-        this.usuarioprofessor = usuarioprofessor;
-    }
-
-
- 
-    public Escritorio getEscritorio() {
-        return escritorio;
-    }
-
-    public void setEscritorio(Escritorio escritorio) {
-        this.escritorio = escritorio;
-    }
-
-    public boolean isAcessa() {
-        return acessa;
-    }
-
-    public void setAcessa(boolean acessa) {
-        this.acessa = acessa;
-    }
-
-    public String getDeletado() {
-        return deletado;
-    }
-
-    public void setDeletado(String deletado) {
-        this.deletado = deletado;
-    }
 
     @Override
     public int hashCode() {

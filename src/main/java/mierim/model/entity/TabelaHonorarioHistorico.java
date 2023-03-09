@@ -1,6 +1,11 @@
 package mierim.model.entity;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Entity;
@@ -10,7 +15,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity(name = "cad_tabela_honorario_historico")
 public class TabelaHonorarioHistorico implements Serializable {
 
@@ -26,55 +34,6 @@ public class TabelaHonorarioHistorico implements Serializable {
      private String ano_mes_fim;
     private String deletado  = "2";
 
-    public TabelaHonorarioHistorico(){ 
-    }  
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-
-    
-    public TabelaHonorario getTabelaHonorario() {
-        return tabelaHonorario;
-    }
-
-    public void setTabelaHonorario(TabelaHonorario tabelaHonorario) {
-        this.tabelaHonorario = tabelaHonorario;
-    }
-
-    public String getAno_mes_ini() {
-        return ano_mes_ini;
-    }
-
-    public void setAno_mes_ini(String ano_mes_ini) {
-        this.ano_mes_ini = ano_mes_ini;
-    }
-
-    public String getAno_mes_fim() {
-        return ano_mes_fim;
-    }
-
-    public void setAno_mes_fim(String ano_mes_fim) {
-        this.ano_mes_fim = ano_mes_fim;
-    }
-
-
-   
-    public String getDeletado() {
-        return deletado;
-    }
-
-    public void setDeletado(String deletado) {
-        this.deletado = deletado;
-    }
-
-
-    
     
     @Override
     public int hashCode() {

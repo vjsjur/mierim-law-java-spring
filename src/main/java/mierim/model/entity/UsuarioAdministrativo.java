@@ -1,10 +1,19 @@
 package mierim.model.entity;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @NamedQueries({
 	@NamedQuery(name = UsuarioAdministrativo.LISTAR_TODOS, query = UsuarioAdministrativo.LISTAR_TODOS)
@@ -17,12 +26,5 @@ public class UsuarioAdministrativo extends Usuario {
 
 	private String grauIntrucao;
 
-	public String getGrauIntrucao() {
-		return grauIntrucao;
-	}
-
-	public void setGrauIntrucao(String grauIntrucao) {
-		this.grauIntrucao = grauIntrucao;
-	}
 
 }
