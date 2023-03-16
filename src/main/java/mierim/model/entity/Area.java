@@ -23,6 +23,7 @@ import javax.validation.constraints.NotEmpty;
 @Entity(name = "cad_area_juridica")
 public class Area implements Serializable {
 
+
     private static final long serialVersionUID = 0L;
 
     @Id
