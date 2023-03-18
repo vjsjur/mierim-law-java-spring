@@ -1,4 +1,4 @@
-package mierim.model.entity.sistema;
+package mierim.model.entity.autocontida;
 
 /**
  * @author Vagner J Santos (VJS)
