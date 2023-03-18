@@ -6,7 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -23,6 +25,14 @@ public class Sis_CompanyGroup {
 
     @Column(nullable=false, length=120)
     private String grupo_economico;
+
+    @Column(nullable=false, length=120)
+    private String dominio;
+
+
+    @OneToMany
+    @JoinColumn(name = "tanant")
+    private List<Sis_Company> sis_company;
 
 
 }
