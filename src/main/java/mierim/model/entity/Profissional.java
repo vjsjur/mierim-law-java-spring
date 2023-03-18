@@ -87,7 +87,7 @@ public class Profissional implements Serializable {
     private String telefone;
     private String celular;
     private String status;
-    private String part_distrinuicao;
+    private String part_distribuicao;
     private String revisor_faturamento;
     private String altera_caso_encerrado;
     private String inclui_pos_corte;
