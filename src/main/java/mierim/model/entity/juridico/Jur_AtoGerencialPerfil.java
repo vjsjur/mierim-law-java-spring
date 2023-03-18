@@ -1,6 +1,6 @@
 package mierim.model.entity.juridico;
 
-import mierim.model.entity.Sis_Perfil;
+import mierim.model.entity.sistema.Sis_Perfil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

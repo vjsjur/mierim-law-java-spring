@@ -1,7 +1,7 @@
 package mierim.model.entity.juridico;
 
-import mierim.model.entity.UnidadeFederativa;
-import mierim.model.entity.Pais;
+import mierim.model.entity.autocontida.UnidadeFederativa;
+import mierim.model.entity.autocontida.Pais;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

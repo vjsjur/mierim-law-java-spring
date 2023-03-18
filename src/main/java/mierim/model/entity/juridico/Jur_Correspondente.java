@@ -1,7 +1,7 @@
 package mierim.model.entity.juridico;
 
 
-import mierim.model.entity.Cliente;
+import mierim.model.entity.faturamento.Cliente;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

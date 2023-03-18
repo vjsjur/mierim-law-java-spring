@@ -1,7 +1,7 @@
 package mierim.rest;
 
 import lombok.RequiredArgsConstructor;
-import mierim.model.entity.Cidade;
+import mierim.model.entity.autocontida.Cidade;
 import mierim.model.repository.CidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

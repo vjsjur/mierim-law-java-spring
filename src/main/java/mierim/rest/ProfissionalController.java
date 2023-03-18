@@ -1,7 +1,7 @@
 package mierim.rest;
 
 import lombok.RequiredArgsConstructor;
-import mierim.model.entity.Profissional;
+import mierim.model.entity.faturamento.Profissional;
 import mierim.model.repository.ProfissionalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
