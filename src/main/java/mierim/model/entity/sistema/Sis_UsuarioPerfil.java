@@ -15,8 +15,8 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
-public class UsuarioPerfil implements Serializable {
+@Entity(name = "sis_usuario_perfil")
+public class Sis_UsuarioPerfil implements Serializable {
 
     private static final long serialVersionUID = 0L;
     @Id
@@ -28,7 +28,7 @@ public class UsuarioPerfil implements Serializable {
     private Sis_Perfil perfil;
     @ManyToOne
     @JoinColumn(name = "id_usuario")
-    private UsuarioProfessor usuarioprofessor;
+    private Sis_UsuarioComplemento usuarioprofessor;
     private boolean ativo = false;
     private boolean inclui = true;
     private boolean altera = true;
@@ -46,6 +46,16 @@ public class UsuarioPerfil implements Serializable {
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant")
     private Sis_CompanyGroup sis_company_group;
+
+    @NotNull(message = "Preencha a Empresa!")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tenant_company")
+    private Sis_CompanyEmpresa sis_empresa;
+
+    @NotNull(message = "Preencha a Filial!")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tenant_filial")
+    private Sis_CompanyFilial sis_filial;
 
     @Override
     public int hashCode() {
@@ -66,7 +76,7 @@ public class UsuarioPerfil implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final UsuarioPerfil other = (UsuarioPerfil) obj;
+        final Sis_UsuarioPerfil other = (Sis_UsuarioPerfil) obj;
         if (!Objects.equals(this.status, other.status)) {
             return false;
         }

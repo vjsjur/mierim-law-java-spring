@@ -2,7 +2,6 @@ package mierim.model.entity.sistema;
 
 
 import lombok.*;
-import mierim.model.entity.juridico.Area;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -22,7 +21,7 @@ import java.util.Objects;
                 @UniqueConstraint(columnNames = {"id_tenant_company","id_tenant", "deletado", "cpf_cnpj"}, name = "company_cpf_cnpj_uk")
         }
 )
-public class Sis_Company {
+public class Sis_CompanyEmpresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_tenant_company;
@@ -64,8 +63,8 @@ public class Sis_Company {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Sis_Company)) return false;
-        Sis_Company that = (Sis_Company) o;
+        if (!(o instanceof Sis_CompanyEmpresa)) return false;
+        Sis_CompanyEmpresa that = (Sis_CompanyEmpresa) o;
         return getId_tenant_company().equals(that.getId_tenant_company());
     }
 

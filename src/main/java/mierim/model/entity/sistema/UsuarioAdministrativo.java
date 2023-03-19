@@ -1,11 +1,10 @@
-package mierim.model.entity.faturamento;
+package mierim.model.entity.sistema;
 
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import mierim.model.entity.sistema.Usuario;
 
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
@@ -19,7 +18,7 @@ import javax.persistence.NamedQuery;
 @NamedQueries({
 	@NamedQuery(name = UsuarioAdministrativo.LISTAR_TODOS, query = UsuarioAdministrativo.LISTAR_TODOS)
 })
-public class UsuarioAdministrativo extends Usuario {
+public class UsuarioAdministrativo extends Sis_Usuario {
 
 	private static final long serialVersionUID = -5479955455017618076L;
 

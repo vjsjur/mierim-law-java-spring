@@ -36,7 +36,7 @@ public class Sis_CompanyGroup {
 
     @OneToMany
     @JoinColumn(name = "id_tenant")
-    private List<Sis_Company> sis_company;
+    private List<Sis_CompanyEmpresa> sis_company_empresa;
 
     @OneToMany
     @JoinColumn(name = "id_tenant")
@@ -65,16 +65,16 @@ public class Sis_CompanyGroup {
 
     @OneToMany
     @JoinColumn(name = "id_tenant")
-    private List<UsuarioPerfil> usuario_perfil;
+    private List<Sis_UsuarioPerfil> usuario_perfil;
 
     @OneToMany
     @JoinColumn(name = "id_tenant")
-    private List<UsuarioProfessor> usuario_professor;
+    private List<Sis_UsuarioComplemento> usuario_professor;
 
 
     @OneToMany
     @JoinColumn(name = "id_tenant")
-    private List<Usuario> usuario;
+    private List<Sis_Usuario> sis_usuario;
 
 
 

@@ -38,6 +38,16 @@ public class Sis_Perfil implements Serializable {
     @JoinColumn(name = "id_tenant")
     private Sis_CompanyGroup sis_company_group;
 
+    @NotNull(message = "Preencha a Empresa!")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tenant_company")
+    private Sis_CompanyEmpresa sis_empresa;
+
+    @NotNull(message = "Preencha a Filial!")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tenant_filial")
+    private Sis_CompanyFilial sis_filial;
+
     @Override
     public int hashCode() {
         int hash = 5;

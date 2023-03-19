@@ -11,20 +11,16 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.transaction.annotation.Transactional;
 
 
-@Entity
+@Entity(name = "sis_usuario")
 @Transactional
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Usuario implements Serializable, UserDetails {
+public abstract class Sis_Usuario implements Serializable, UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -119,4 +115,14 @@ public abstract class Usuario implements Serializable, UserDetails {
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant")
     private Sis_CompanyGroup sis_company_group;
+
+    @NotNull(message = "Preencha a Empresa!")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tenant_company")
+    private Sis_CompanyEmpresa sis_empresa;
+
+    @NotNull(message = "Preencha a Filial!")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tenant_filial")
+    private Sis_CompanyFilial sis_filial;
 }

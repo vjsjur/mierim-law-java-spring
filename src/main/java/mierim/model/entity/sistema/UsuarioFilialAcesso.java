@@ -1,10 +1,10 @@
-package mierim.model.entity.faturamento;
+package mierim.model.entity.sistema;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import mierim.model.entity.sistema.UsuarioProfessor;
+import mierim.model.entity.faturamento.Escritorio;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -28,7 +28,7 @@ public class UsuarioFilialAcesso implements Serializable {
     private Integer id;
     @ManyToOne
     @JoinColumn(name = "id_usuario")
-    private UsuarioProfessor usuarioprofessor;
+    private Sis_UsuarioComplemento usuarioprofessor;
     @ManyToOne
     @JoinColumn(name = "id_escritorio")
     private Escritorio escritorio;

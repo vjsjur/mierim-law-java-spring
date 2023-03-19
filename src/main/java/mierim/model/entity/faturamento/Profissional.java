@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import mierim.model.entity.autocontida.UnidadeFederativa;
-import mierim.model.entity.sistema.UsuarioProfessor;
+import mierim.model.entity.sistema.Sis_UsuarioComplemento;
 import mierim.model.entity.autocontida.Municipio;
 import mierim.model.entity.autocontida.Pais;
 import mierim.model.entity.financeiro.Centrocusto;
@@ -76,7 +76,7 @@ public class Profissional implements Serializable {
     private Departamento departamento;
     @ManyToOne
     @JoinColumn(name = "id_usuario")
-    private UsuarioProfessor usuario;
+    private Sis_UsuarioComplemento usuario;
     @ManyToOne
     @JoinColumn(name = "id_centro_custo")
     private Centrocusto centrocusto;
