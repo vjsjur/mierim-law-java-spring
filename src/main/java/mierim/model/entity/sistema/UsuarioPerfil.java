@@ -6,15 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Objects;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
+import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
@@ -46,6 +41,11 @@ public class UsuarioPerfil implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date hora_fin;
     private String deletado = "2";
+
+    @NotNull(message = "Preencha o Grupo Econômico!")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tenant")
+    private Sis_CompanyGroup sis_company_group;
 
     @Override
     public int hashCode() {

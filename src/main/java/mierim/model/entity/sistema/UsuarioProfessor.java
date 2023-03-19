@@ -5,9 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
@@ -25,6 +24,11 @@ public class UsuarioProfessor extends Usuario {
 
     private String grauIntrucao;
     private String usuario_ad;
+
+    @NotNull(message = "Preencha o Grupo Econômico!")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tenant")
+    private Sis_CompanyGroup sis_company_group;
 
 
 }

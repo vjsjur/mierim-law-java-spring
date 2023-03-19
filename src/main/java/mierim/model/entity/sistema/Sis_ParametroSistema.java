@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -17,7 +18,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @Builder
 @Entity(name = "sis_parametro_sistema")
-public class SisParametroSistema implements Serializable {
+public class Sis_ParametroSistema implements Serializable {
 
     private static final long serialVersionUID = 0L;
 
@@ -43,6 +44,11 @@ public class SisParametroSistema implements Serializable {
     private String deletado = "2";
     private String status = "1";
 
+    @NotNull(message = "Preencha o Grupo Econômico!")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tenant")
+    private Sis_CompanyGroup sis_company_group;
+
     @Override
     public int hashCode() {
         int hash = 5;
@@ -61,7 +67,7 @@ public class SisParametroSistema implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final SisParametroSistema other = (SisParametroSistema) obj;
+        final Sis_ParametroSistema other = (Sis_ParametroSistema) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }

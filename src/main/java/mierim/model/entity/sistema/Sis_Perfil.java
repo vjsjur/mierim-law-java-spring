@@ -8,12 +8,10 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
@@ -33,6 +31,12 @@ public class Sis_Perfil implements Serializable {
     private String status = "1";
     private String juridico = "1";
     private String deletado = "2";
+
+
+    @NotNull(message = "Preencha o Grupo Econômico!")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tenant")
+    private Sis_CompanyGroup sis_company_group;
 
     @Override
     public int hashCode() {

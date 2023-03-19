@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -34,6 +35,21 @@ public class Sis_Menu implements Serializable {
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_menu_grupo")
     private Sis_MenuGrupo menugrupo;
+
+    @NotNull(message = "Preencha o Grupo Econômico!")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tenant")
+    private Sis_CompanyGroup sis_company_group;
+
+    @NotNull(message = "Preencha o Grupo Econômico!")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tenant_company")
+    private Sis_Company sis_company;
+
+    @NotNull(message = "Preencha o Grupo Econômico!")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tenant_filial")
+    private Sis_CompanyFilial sis_filial;
 
     @Override
     public boolean equals(Object o) {
