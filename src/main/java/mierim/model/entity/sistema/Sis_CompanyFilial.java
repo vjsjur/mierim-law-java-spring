@@ -1,13 +1,12 @@
 package mierim.model.entity.sistema;
 
-
 import lombok.*;
-import mierim.model.entity.juridico.Area;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Objects;
+
 
 @Setter
 @Getter
@@ -15,17 +14,11 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity(name = "sis_company")
-@Table(uniqueConstraints =
-        {
-                @UniqueConstraint(columnNames = {"id_tenant_company","id_tenant", "deletado"}, name = "company_tenant_uk"),
-                @UniqueConstraint(columnNames = {"id_tenant_company","id_tenant", "deletado", "cpf_cnpj"}, name = "company_cpf_cnpj_uk")
-        }
-)
-public class Sis_Company {
+@Entity(name = "sis_company_filial")
+public class Sis_CompanyFilial {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_tenant_company;
+    private Long id_tenant_filial;
     @Column(nullable=false)
     private Integer cpf_cnpj;
     @Column(nullable=false, length=120)
@@ -57,20 +50,25 @@ public class Sis_Company {
     @JoinColumn(name = "id_tenant")
     private Sis_CompanyGroup sis_company_group;
 
-    @OneToMany
+    @NotNull(message = "Preencha o Grupo Econômico!")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant_company")
-    private List<Sis_CompanyFilial> sis_company_filial;
+    private Sis_Company sis_company;
+
+    @OneToMany
+    @JoinColumn(name = "id_tenant_filial")
+    private List<Sis_Menu> sis_menu;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Sis_Company)) return false;
-        Sis_Company that = (Sis_Company) o;
-        return getId_tenant_company().equals(that.getId_tenant_company());
+        if (!(o instanceof Sis_CompanyFilial)) return false;
+        Sis_CompanyFilial that = (Sis_CompanyFilial) o;
+        return getId_tenant_filial().equals(that.getId_tenant_filial());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId_tenant_company());
+        return Objects.hash(getId_tenant_filial());
     }
 }
