@@ -50,7 +50,7 @@ public class Sis_CompanyFilial {
     @JoinColumn(name = "id_tenant")
     private Sis_CompanyGroup sis_company_group;
 
-    @NotNull(message = "Preencha o Grupo Econômico!")
+    @NotNull(message = "Preencha Empresa!")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant_company")
     private Sis_CompanyEmpresa sis_empresa;

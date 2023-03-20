@@ -14,7 +14,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity(name = "sis_company")
+@Entity(name = "sis_company_empresa")
 @Table(uniqueConstraints =
         {
                 @UniqueConstraint(columnNames = {"id_tenant_company","id_tenant", "deletado"}, name = "company_tenant_uk"),
