@@ -56,6 +56,9 @@ public class Sis_CompanyEmpresa {
     @JoinColumn(name = "id_tenant")
     private Sis_CompanyGroup sis_company_group;
 
+
+
+
     @OneToMany
     @JoinColumn(name = "id_tenant_company")
     private List<Sis_CompanyFilial> sis_company_filial;
