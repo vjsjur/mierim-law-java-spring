@@ -17,7 +17,7 @@
       <jdbc-url>jdbc:postgresql://150.230.84.220:5432/mierimlaw_dev</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="ec2-50-17-21-26.compute-1.amazonaws.com" uuid="5ed11ff9-8e07-4358-b01e-3f77fe808f6e">
+    <data-source source="LOCAL" name="d4sd7eff4u9khi@ec2-50-17-21-26.compute-1.amazonaws.com" uuid="4bb7ed20-77cf-4971-aebd-178c7009fb96">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
