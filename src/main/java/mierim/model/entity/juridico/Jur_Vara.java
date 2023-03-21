@@ -46,6 +46,7 @@ public class Jur_Vara  implements Serializable {
     private String  endereco;
     private String  ativo;
     private String  codigo;
+    private String  deletado;
     private String  chave_cnj;
 
     @NotNull(message = "Preencha o Usuário de Aleração")
