@@ -1,7 +1,7 @@
 package mierim.model.entity.juridico;
 
-import mierim.model.entity.autocontida.UnidadeFederativa;
-import mierim.model.entity.autocontida.Pais;
+
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,40 +12,41 @@ import mierim.model.entity.sistema.Sis_CompanyGroup;
 import mierim.model.entity.sistema.Sis_Usuario;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
-
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity(name = "jur_comarca")
-public class Jur_Comarca implements Serializable {
+@Entity(name = "jur_vara")
+@Table(uniqueConstraints =
+        {
+                @UniqueConstraint(columnNames = {"id"}, name = "jur_vara_uk"),
+                @UniqueConstraint(columnNames = {"id", "deletado"}, name = "jur_vara_ativo_uk")
+        }
+)
+public class Jur_Vara  implements Serializable {
 
     private static final long serialVersionUID = 0L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @NotEmpty(message = "PREENCHA DESCRIÇÃO!")
-    private String descricao;
+    private Long  id;
 
     @ManyToOne
-    @JoinColumn(name = "id_pais")
-    private Pais id_pais;
+    @JoinColumn(name = "id_comarca")
+    private Jur_Comarca comarca;
 
     @ManyToOne
-    @JoinColumn(name = "id_estado")
-    private UnidadeFederativa id_estado;
-
-    @NotEmpty(message = "PREENCHA STATUS!")
-    private String status = "1";
-    private String deletado = "2";
+    @JoinColumn(name = "id_foro")
+    private Jur_Foro foro;
+    private String  descricao;
+    private String  endereco;
+    private String  ativo;
+    private String  codigo;
+    private String  chave_cnj;
 
     @NotNull(message = "Preencha o Usuário de Aleração")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
@@ -78,32 +79,4 @@ public class Jur_Comarca implements Serializable {
     @JoinColumn(name = "id_tenant_filial")
     private Sis_CompanyFilial sis_filial;
 
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 73 * hash + Objects.hashCode(this.id);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Jur_Comarca other = (Jur_Comarca) obj;
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-        return true;
-    }
-
-    
-    
 }
