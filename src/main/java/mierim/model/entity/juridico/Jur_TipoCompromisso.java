@@ -16,13 +16,13 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Builder
 @Entity(name = "jur_categoria_compromisso")
-public class Jur_CategoriaCompromisso implements Serializable {
+public class Jur_TipoCompromisso implements Serializable {
 
     private static final long serialVersionUID = 0L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String descricao;
     private String Status = "1";
     private String deletado = "2";
