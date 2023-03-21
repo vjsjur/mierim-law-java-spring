@@ -31,6 +31,10 @@ public class Jur_Decisao implements Serializable {
     private String status = "1";
     private String deletado = "2";
 
+    @NotNull(message = "Preencha o Usuário de Aleração")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_usuario_inclusao")
+    private Sis_Usuario sis_usuario_inclusao;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date data_inclusao;
 
