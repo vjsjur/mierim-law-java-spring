@@ -9,26 +9,52 @@ import mierim.model.entity.sistema.Sis_CompanyFilial;
 import mierim.model.entity.sistema.Sis_CompanyGroup;
 import mierim.model.entity.sistema.Sis_Usuario;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity(name = "jur_andamento_padrao")
-public class Jur_AndamentoPadrao implements Serializable {
+@Entity(name = "cad_area_juridica")
+public class Jur_AreaJuridica implements Serializable {
+
 
     private static final long serialVersionUID = 0L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
+
+    @Column(name = "locado", length = 1)
+    private Integer locado = 2;
+    private String filtro;
+
+    @NotEmpty(message = "PREENCHA O CÓDIGO!")
+    @Column(name = "codigo", length = 10)
+    private String codigo;
+
+    @NotEmpty(message = "PREENCHA A DESCRIÇÃO!")
+    @Column(name = "descricao", length = 80)
     private String descricao;
-    private String descricao_padrao;
-    private String Status = "1";
+
+    @NotEmpty(message = "PREENCHA O TÉCNICO")
+    @Column(name = "tecnico", length = 1)
+    private String tecnico;
+
+    @NotEmpty(message = "PREENCHA O STATUS!")
+    @Column(name = "status", length = 1)
+    private String status;
+
+    @OneToMany
+    @JoinColumn(name = "id_area")
+    private List<Jur_AreaJuridicaSub> subarea;
+
+    @Column(name = "deletado", length = 1)
     private String deletado = "2";
 
     @Temporal(javax.persistence.TemporalType.DATE)

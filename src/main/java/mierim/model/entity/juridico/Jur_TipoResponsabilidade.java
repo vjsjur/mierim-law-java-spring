@@ -23,7 +23,7 @@ public class Jur_TipoResponsabilidade implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String descricao;
     private String tipo;
     private String Status = "1";

@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import mierim.model.entity.juridico.Area;
-import mierim.model.entity.juridico.SubArea;
+import mierim.model.entity.juridico.Jur_AreaJuridica;
+import mierim.model.entity.juridico.Jur_AreaJuridicaSub;
 import mierim.model.entity.sistema.Sis_CompanyEmpresa;
 import mierim.model.entity.sistema.Sis_CompanyFilial;
 import mierim.model.entity.sistema.Sis_CompanyGroup;
@@ -78,13 +78,13 @@ public class Caso implements Serializable {
     private TabelaHonorario tabelaHonorario;
 
     @ManyToOne
-    @JoinColumn(name = "id_area_juridica")
-    private Area areaJuridica;
+    @JoinColumn(name = "id_Jur_area_juridicaJuridica")
+    private Jur_AreaJuridica jurAreaJuridicaJuridica;
     private String area_juridica_descricao;
 
     @ManyToOne
     @JoinColumn(name = "id_subarea_juridica")
-    private SubArea subAreaJuridica;
+    private Jur_AreaJuridicaSub jurAreaJuridicaSubJuridica;
     private String subarea_juridica_descricao;
 
     @ManyToOne

@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import mierim.model.entity.juridico.Area;
-import mierim.model.entity.juridico.SubArea;
+import mierim.model.entity.juridico.Jur_AreaJuridica;
+import mierim.model.entity.juridico.Jur_AreaJuridicaSub;
 import mierim.model.entity.sistema.Sis_CompanyEmpresa;
 import mierim.model.entity.sistema.Sis_CompanyFilial;
 import mierim.model.entity.sistema.Sis_CompanyGroup;
@@ -78,12 +78,12 @@ public class CasoHistorico implements Serializable {
     private Caso caso;
 
     @ManyToOne
-    @JoinColumn(name = "id_area_juridica")
-    private Area id_area_juridica;
+    @JoinColumn(name = "id_Jur_area_juridicaJuridica")
+    private Jur_AreaJuridica id_Jur_area_juridicaJuridica;
 
     @ManyToOne
     @JoinColumn(name = "id_subarea_juridica")
-    private SubArea id_subarea_juridica;
+    private Jur_AreaJuridicaSub id_subarea_juridica;
 
     @ManyToOne
     @JoinColumn(name = "id_escritorio")

@@ -22,7 +22,7 @@ public class Jur_TipoEnvolvimento implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String descricao;
     private String polo;
     private String descricao_padrao;
