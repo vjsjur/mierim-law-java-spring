@@ -26,7 +26,7 @@ public class Sis_CompanyEmpresa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_tenant_company;
     @Column(nullable=false)
-    private Integer cpf_cnpj;
+    private Long cpf_cnpj;
     @Column(nullable=false, length=120)
     private String nome_emp;
     @Column(nullable=false, length=120)
