@@ -136,15 +136,6 @@ public class Cliente implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date data_inclusao;
 
-/*
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_usuario_alteracao")
-    private Sis_Usuario sis_usuario_alteracao;
-
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date data_alteracao = new Date();
-*/
-
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant")
     private Sis_CompanyGroup sis_company_group;
@@ -152,6 +143,7 @@ public class Cliente implements Serializable {
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant_company")
     private Sis_CompanyEmpresa sis_empresa;
+
 
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant_filial")
