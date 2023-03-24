@@ -17,9 +17,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.transaction.annotation.Transactional;
 
 
-@Entity(name = "sis_usuario")
+
 @Transactional
 @Inheritance(strategy = InheritanceType.JOINED)
+@Entity(name = "sis_usuario")
 public abstract class Sis_Usuario implements Serializable, UserDetails {
 
     @Id
