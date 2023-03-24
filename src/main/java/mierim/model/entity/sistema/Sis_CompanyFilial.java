@@ -20,7 +20,7 @@ public class Sis_CompanyFilial {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_tenant_filial;
     @Column(nullable=false)
-    private Integer cpf_cnpj;
+    private Long cpf_cnpj;
     @Column(nullable=false, length=120)
     private String nome_emp;
     @Column(nullable=false, length=120)
