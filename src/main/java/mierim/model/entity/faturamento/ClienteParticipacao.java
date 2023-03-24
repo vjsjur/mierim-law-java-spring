@@ -18,7 +18,6 @@ public class ClienteParticipacao implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "int(6) ZEROFILL")
     private Integer id;
     private Date ano_mes_ini;
     private Date ano_mes_fin;

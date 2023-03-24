@@ -26,7 +26,7 @@ public class CasoExcecaoProfissional implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "int(6) ZEROFILL")
+
     private Integer id;
     private String ano_mes_ini;
     private String ano_mes_fin;

@@ -26,7 +26,6 @@ public class ContratoCondFaturamento implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "int(6) ZEROFILL")
     private Long id;
 
     @ManyToOne

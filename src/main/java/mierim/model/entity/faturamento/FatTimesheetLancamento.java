@@ -29,7 +29,6 @@ public class FatTimesheetLancamento implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "int(12) ZEROFILL")
     private Long id;
 
     @Temporal(javax.persistence.TemporalType.DATE)

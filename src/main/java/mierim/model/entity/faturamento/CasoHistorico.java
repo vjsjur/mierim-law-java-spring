@@ -28,7 +28,7 @@ public class CasoHistorico implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "int(6) ZEROFILL")
+
     private Integer id;
 
     @Column(name = "cobravel", length = 1)

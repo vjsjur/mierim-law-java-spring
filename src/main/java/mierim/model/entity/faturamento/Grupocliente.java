@@ -28,7 +28,6 @@ import javax.validation.constraints.NotNull;
 public class Grupocliente implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "int(6) ZEROFILL")
     public Integer id;
 
     public String codigo;

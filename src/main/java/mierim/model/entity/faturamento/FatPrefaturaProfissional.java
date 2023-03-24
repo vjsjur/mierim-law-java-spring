@@ -27,7 +27,6 @@ public class FatPrefaturaProfissional implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "int(12) ZEROFILL")
     private Long id;
 
     @ManyToOne

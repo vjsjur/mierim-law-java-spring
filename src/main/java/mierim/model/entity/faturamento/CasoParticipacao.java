@@ -26,7 +26,7 @@ public class CasoParticipacao implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "int(6) ZEROFILL")
+
     private Integer id;
 
     @Temporal(javax.persistence.TemporalType.DATE)
