@@ -46,11 +46,11 @@ public class Cliente implements Serializable {
     private String forma_pagto;
 
     @ManyToOne
-    @JoinColumn(name = "id_prifissional_socio")
+    @JoinColumn(name = "id_profissional_socio")
     private Profissional profissionalSoc;
 
     @ManyToOne
-    @JoinColumn(name = "id_prifissional_revizor")
+    @JoinColumn(name = "id_profissional_revizor")
     private Profissional profissionalRev;
     private String deletado = "2";
     private String rec_iss;
@@ -136,7 +136,7 @@ public class Cliente implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date data_inclusao;
 
-    @NotNull(message = "Preencha o Usuário de Aleração")
+
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_usuario_alteracao")
     private Sis_Usuario sis_usuario_alteracao;
@@ -144,17 +144,14 @@ public class Cliente implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date data_alteracao = new Date();
 
-    @NotNull(message = "Preencha o Grupo Econômico!")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant")
     private Sis_CompanyGroup sis_company_group;
 
-    @NotNull(message = "Preencha a Empresa!")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant_company")
     private Sis_CompanyEmpresa sis_empresa;
 
-    @NotNull(message = "Preencha a Filial!")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant_filial")
     private Sis_CompanyFilial sis_filial;
