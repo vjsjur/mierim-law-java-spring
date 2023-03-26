@@ -21,14 +21,11 @@ public class Sis_UsuarioPerfil implements Serializable {
     private static final long serialVersionUID = 0L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String status;
     @ManyToOne
     @JoinColumn(name = "id_perfil")
     private Sis_Perfil perfil;
-    @ManyToOne
-    @JoinColumn(name = "id_usuario")
-    private Sis_UsuarioComplemento usuarioprofessor;
     private boolean ativo = false;
     private boolean inclui = true;
     private boolean altera = true;

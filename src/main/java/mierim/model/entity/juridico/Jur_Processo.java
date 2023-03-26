@@ -31,6 +31,8 @@ public class Jur_Processo implements Serializable {
     private String  id_subareajuridica;
     private String  id_escritorio;
     private String  id_caso;
+    private String id_cliente;
+    private String id_contrato;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date  data_entrada;
     private String  id_natureza;

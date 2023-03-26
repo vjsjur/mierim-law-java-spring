@@ -28,7 +28,7 @@ public class UsuarioFilialAcesso implements Serializable {
     private Integer id;
     @ManyToOne
     @JoinColumn(name = "id_usuario")
-    private Sis_UsuarioComplemento usuarioprofessor;
+    private Sis_Usuario usuario;
     @ManyToOne
     @JoinColumn(name = "id_escritorio")
     private Escritorio escritorio;

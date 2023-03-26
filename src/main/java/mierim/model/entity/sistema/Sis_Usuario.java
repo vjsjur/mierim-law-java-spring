@@ -11,6 +11,10 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,99 +22,38 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 
-@Transactional
-@Inheritance(strategy = InheritanceType.JOINED)
-@Entity(name = "sis_usuario")
-public abstract class Sis_Usuario implements Serializable, UserDetails {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity(name = "sis_usuario" +
+        "")
+public class Sis_Usuario implements Serializable {
 
+    private static final long serialVersionUID = 0L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String nome;
-    private String email;
-    private String email_bkp;
+    private Long id;
+    @Column(name = "usuario", length = 50)
+    private String usuario;
 
-    @NotEmpty(message = "IMPORME O LOGIN!")
-    private String login;
-
-    @NotEmpty(message = "IMPORME A SENHA!")
+    @Column(name = "senha", length = 50)
     private String senha;
-    private boolean ativo;
+    @Column(name = "usuario_ad", length = 30)
+    private String usuario_ad;
+    @Column(name = "celular", length = 11)
+    private String celular;
+    private Integer tentativas;
+
+    @Column(name = "ativo", length = 1)
+    private String ativo;
+    @Column(name = "bloqueado", length = 1)
+    private String bloqueado;
+    @Column(name = "e_mail", length = 150)
+    private String e_mail;
+    @Column(name = "palavra_passe", length = 50)
+    private String palavra_passe;
     private Integer nivel_visao_campo;
-
-
-    @Override
-    @Transient
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        Set<GrantedAuthority> authority = new HashSet<GrantedAuthority>();
-        authority.add(new SimpleGrantedAuthority("ROLE_USER"));
-        return authority;
-
-    }
-
-    @Override
-    @Transient
-    public String getPassword() {
-        return senha;
-    }
-
-    @Override
-    @Transient
-    public String getUsername() {
-        return login;
-    }
-
-    @Override
-    @Transient
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    @Transient
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    @Transient
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    @Transient
-    public boolean isEnabled() {
-        return ativo;
-    }
-
-    @NotEmpty(message = "IMPORME O NOME!")
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-   
-    @NotEmpty(message = "IMPORME O EMAIL!")
-    @Email(message = "INFORME UM EMAIL VÁLIDO")
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public boolean isAtivo() {
-        return ativo;
-    }
-
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
-    }
 
     @NotNull(message = "Preencha o Grupo Econômico!")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)

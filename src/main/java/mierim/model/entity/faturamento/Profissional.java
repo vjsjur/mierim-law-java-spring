@@ -8,19 +8,18 @@ import mierim.model.entity.autocontida.UnidadeFederativa;
 import mierim.model.entity.sistema.Sis_CompanyEmpresa;
 import mierim.model.entity.sistema.Sis_CompanyFilial;
 import mierim.model.entity.sistema.Sis_CompanyGroup;
-import mierim.model.entity.sistema.Sis_UsuarioComplemento;
 import mierim.model.entity.autocontida.Municipio;
 import mierim.model.entity.autocontida.Pais;
 import mierim.model.entity.financeiro.Centrocusto;
 import mierim.model.entity.rhumanos.Cargo;
 import mierim.model.entity.rhumanos.Departamento;
+import mierim.model.entity.sistema.Sis_Usuario;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
@@ -72,7 +71,7 @@ public class Profissional implements Serializable {
     private Departamento departamento;
     @ManyToOne
     @JoinColumn(name = "id_usuario")
-    private Sis_UsuarioComplemento usuario;
+    private Sis_Usuario usuario;
     @ManyToOne
     @JoinColumn(name = "id_centro_custo")
     private Centrocusto centrocusto;

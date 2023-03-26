@@ -67,10 +67,6 @@ public class Sis_CompanyGroup {
     @JoinColumn(name = "id_tenant")
     private List<Sis_UsuarioPerfil> usuario_perfil;
 
-    @OneToMany
-    @JoinColumn(name = "id_tenant")
-    private List<Sis_UsuarioComplemento> usuario_professor;
-
 
     @OneToMany
     @JoinColumn(name = "id_tenant")
