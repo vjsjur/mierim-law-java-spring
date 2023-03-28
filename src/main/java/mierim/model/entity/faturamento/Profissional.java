@@ -59,6 +59,15 @@ public class Profissional implements Serializable {
     private UnidadeFederativa id_estado;
     @ManyToOne
     @JoinColumn(name = "id_pais")
+
+
+
+
+
+
+
+
+    
     private Pais id_pais;
     @ManyToOne
     @JoinColumn(name = "id_categoria")
