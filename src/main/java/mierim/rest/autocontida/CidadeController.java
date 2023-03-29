@@ -1,4 +1,4 @@
-package mierim.rest;
+package mierim.rest.autocontida;
 
 import lombok.RequiredArgsConstructor;
 import mierim.model.entity.autocontida.Cidade;

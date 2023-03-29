@@ -1,4 +1,4 @@
-package mierim.rest;
+package mierim.rest.faturamento;
 
 import lombok.RequiredArgsConstructor;
 import mierim.model.entity.faturamento.Profissional;
