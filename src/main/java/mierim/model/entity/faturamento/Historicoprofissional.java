@@ -35,10 +35,11 @@ public class Historicoprofissional implements Serializable {
     private static final long serialVersionUID = 5106253941744225597L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @ManyToOne
     @JoinColumn(name = "id_profissional")
     private Profissional profissional;
-    @Id
     private String ano_mes_ini;
     private String ano_mes_fim;
     @Temporal(javax.persistence.TemporalType.DATE)

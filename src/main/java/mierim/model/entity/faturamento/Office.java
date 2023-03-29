@@ -11,6 +11,7 @@ import mierim.model.entity.sistema.Sis_Usuario;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
@@ -18,8 +19,13 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Office {
-    
+@Entity
+public class Office implements Serializable {
+
+    private static final long serialVersionUID = 5106253941744225597L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
     private String Codigo;
     private String Nome;
