@@ -3,8 +3,10 @@ package mierim.rest.juridico;
 import lombok.RequiredArgsConstructor;
 import mierim.model.entity.juridico.Jur_Natureza;
 import mierim.model.repository.juridico.Jur_NaturezaRepository;
+import mierim.service.Jur_NaturezaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -18,7 +20,11 @@ import java.util.List;
 public class Jur_NaturezaController{
 
     @Autowired
-    private final Jur_NaturezaRepository jur_NaturezaRepository;
+    private Jur_NaturezaService jurNaturezaService;
+
+    private Jur_NaturezaRepository jur_NaturezaRepository;
+
+
 
     @GetMapping
     public List<Jur_Natureza> listarTodos(){
@@ -26,11 +32,10 @@ public class Jur_NaturezaController{
                 .findAll();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Jur_Natureza acharPorId(@PathVariable Long id){
-        return jur_NaturezaRepository
-                .findById(id)
-                .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Natureza não Encontrada"));
+        Jur_Natureza jurNatureza = jurNaturezaService.acharPorId(id);
+        return ResponseEntity.ok().body(jurNatureza).getBody();
     }
 
     @PostMapping
