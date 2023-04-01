@@ -13,7 +13,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/jur_tipoenvolvimento")
+@RequestMapping("/api/jur_objeto")
 @RequiredArgsConstructor
 public class Jur_ObjetoController{
 
@@ -30,7 +30,7 @@ public class Jur_ObjetoController{
     public Jur_Objeto acharPorId(@PathVariable Long id){
         return jur_ObjetolRepository
                 .findById(id)
-                .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Objeto não Encontrada"));
+                .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Objeto não Encontrado"));
     }
 
     @PostMapping
@@ -63,7 +63,7 @@ public class Jur_ObjetoController{
                     jur_ObjetolRepository.delete(jur_objeto);
                     return Void.TYPE;
                 })
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Objeto não Encontrada"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Objeto não Encontrado"));
     }
 
 }
