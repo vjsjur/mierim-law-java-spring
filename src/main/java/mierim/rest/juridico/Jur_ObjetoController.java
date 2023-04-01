@@ -18,17 +18,17 @@ import java.util.List;
 public class Jur_ObjetoController{
 
     @Autowired
-    private final Jur_ObjetoRepository jur_ObjetolRepository;
+    private final Jur_ObjetoRepository jur_ObjetoRepository;
 
     @GetMapping
     public List<Jur_Objeto> listarTodos(){
-        return jur_ObjetolRepository
+        return jur_ObjetoRepository
                 .findAll();
     }
 
     @GetMapping("{id}")
     public Jur_Objeto acharPorId(@PathVariable Long id){
-        return jur_ObjetolRepository
+        return jur_ObjetoRepository
                 .findById(id)
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Objeto não Encontrado"));
     }
@@ -36,19 +36,19 @@ public class Jur_ObjetoController{
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Jur_Objeto salvar(@RequestBody @Valid Jur_Objeto jur_Objeto){
-        return jur_ObjetolRepository
+        return jur_ObjetoRepository
                 .save(jur_Objeto);
     }
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void atualizarDadosJur_Objeto(@PathVariable Long id, @RequestBody Jur_Objeto jur_ObjetoAtualizado) {
-        jur_ObjetolRepository
+        jur_ObjetoRepository
                 .findById(id)
                 .map(jur_Objeto -> {
                     jur_ObjetoAtualizado
                             .setId(jur_Objeto.getId());
-                    return jur_ObjetolRepository
+                    return jur_ObjetoRepository
                             .save(jur_ObjetoAtualizado);
                 })
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Objeto não Encontrado"));
@@ -57,10 +57,10 @@ public class Jur_ObjetoController{
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void excluir(@PathVariable Long id){
-        jur_ObjetolRepository
+        jur_ObjetoRepository
                 .findById(id)
                 .map(jur_objeto -> {
-                    jur_ObjetolRepository.delete(jur_objeto);
+                    jur_ObjetoRepository.delete(jur_objeto);
                     return Void.TYPE;
                 })
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Objeto não Encontrado"));
