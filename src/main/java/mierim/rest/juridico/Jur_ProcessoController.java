@@ -2,6 +2,7 @@ package mierim.rest.juridico;
 
 import lombok.RequiredArgsConstructor;
 import mierim.model.entity.juridico.Jur_Processo;
+import mierim.model.entity.juridico.Jur_TipoEnvolvimento;
 import mierim.model.repository.juridico.Jur_ProcessoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -53,5 +54,7 @@ public class Jur_ProcessoController{
                 })
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Processo não Encontrado"));
     }
+
+
 
 }

@@ -1,9 +1,6 @@
 package mierim.model.entity.juridico;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import mierim.model.entity.sistema.Sis_CompanyEmpresa;
 import mierim.model.entity.sistema.Sis_CompanyFilial;
 import mierim.model.entity.sistema.Sis_CompanyGroup;
@@ -14,6 +11,9 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
+@EqualsAndHashCode
+@Setter
+@Getter
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -176,5 +176,7 @@ public class Jur_Processo implements Serializable {
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant_filial")
     private Sis_CompanyFilial sis_filial;
+
+    
 
 }
