@@ -13,7 +13,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/grupo_economico")
+@RequestMapping("/api/company_group")
 @RequiredArgsConstructor
 public class Sis_CompanyGroupController {
 
