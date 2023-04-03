@@ -52,7 +52,7 @@ public class Sis_CompanyGroupController {
                     return sisCompanyGroupRepository
                             .save(sisCompanyGroupUpdate);
                 })
-                .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Profissional não Encontrada"));
+                .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Grupo Econômico não Encontrado"));
     }
 
     @DeleteMapping("{id}")
@@ -64,7 +64,7 @@ public class Sis_CompanyGroupController {
                     sisCompanyGroupRepository.delete(companyGroup);
                     return Void.TYPE;
                 })
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Grupo Econônico não Encontrada"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Grupo Econônico não Encontrado"));
     }
 
 }
