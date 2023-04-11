@@ -145,6 +145,7 @@ public class Cliente implements Serializable {
     private Sis_CompanyEmpresa sis_empresa;
 
 
+
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant_filial")
     private Sis_CompanyFilial sis_filial;

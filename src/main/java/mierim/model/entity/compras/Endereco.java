@@ -1,16 +1,14 @@
 package mierim.model.entity.compras;
 
-import javax.persistence.*;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import mierim.model.entity.autocontida.Cidade;
+import mierim.model.entity.autocontida.Municipio;
 
-import javax.validation.constraints.NotNull;
-
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Data
@@ -36,8 +34,8 @@ public class Endereco implements Serializable {
 	private String cep;
 
 	@ManyToOne
-	@JoinColumn(name = "id_cidade")
-	@NotNull(message = "Selecione a cidade")
-	private Cidade cidade = new Cidade();
+	@JoinColumn(name = "id_municipio")
+	@NotNull(message = "Selecione o Municipio")
+	private Municipio municipio = new Municipio();
 
 }

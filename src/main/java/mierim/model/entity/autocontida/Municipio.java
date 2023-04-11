@@ -22,13 +22,19 @@ import javax.persistence.ManyToOne;
 public class Municipio implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String nome;
-    @ManyToOne
-    @JoinColumn(name = "id_unidade_federativa")
-    private UnidadeFederativa unidadeFederativa;
-    private String deletado = "2";
+    private Integer idRec;
+    private Integer idRecStatus;
+    private String CodUf;
+    private String SiglaUf;
+    private String NomeUf;
+    private String CodMesorGeog;
+    private String NomeMesor;
+    private String CodMicrorGeog;
+    private String NomeMicror;
+    private String CodMun;
+    private String CodMunComp;
+    private String NomeMun;
 
     @Override
     public int hashCode() {
