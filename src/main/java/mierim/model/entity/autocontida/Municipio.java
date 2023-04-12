@@ -23,18 +23,18 @@ public class Municipio implements Serializable {
 
     @Id
     private Integer id;
-    private Integer idRec;
-    private Integer idRecStatus;
-    private String CodUf;
-    private String SiglaUf;
-    private String NomeUf;
-    private String CodMesorGeog;
-    private String NomeMesor;
-    private String CodMicrorGeog;
-    private String NomeMicror;
-    private String CodMun;
-    private String CodMunComp;
-    private String NomeMun;
+    private Integer id_rec;
+    private Integer id_rec_status;
+    private String cod_uf;
+    private String sigla_uf;
+    private String nome_Uf;
+    private String cod_mesor_geog;
+    private String nome_mesor;
+    private String cod_micror_geog;
+    private String nome_micror;
+    private String cod_mun;
+    private String cod_mun_comp;
+    private String nome_mun;
 
     @Override
     public int hashCode() {

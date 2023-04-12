@@ -26,7 +26,7 @@ public class MunicipioController {
                 .findAll();
     }
 
-    @GetMapping("/siglauf/")
+    @GetMapping
     public List<Municipio> pesquisar(
             @RequestParam(value = "siglauf", required = false, defaultValue = "") String siglauf
     ) {
