@@ -26,13 +26,6 @@ public class MunicipioController {
                 .findAll();
     }
 
-    @GetMapping("/siglauf/")
-    public List<Municipio> pesquisar(
-            @RequestParam(value = "siglauf", required = false, defaultValue = "") String siglauf
-    ) {
-        return municipioRepository.findBySiglaUfMunicipio("%" + siglauf + "%");
-    }
-
     @GetMapping("{id}")
     public Municipio acharPorId(@PathVariable Integer id){
         return municipioRepository

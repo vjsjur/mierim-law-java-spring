@@ -9,7 +9,4 @@ import java.util.List;
 
 public interface MunicipioRepository extends JpaRepository<Municipio, Integer> {
 
-    @Query(" select s from cad_municipio s where upper( s.sigla_uf ) like upper( :siglauf ) " )
-    List<Municipio> findBySiglaUfMunicipio(@Param("siglauf") String siglauf);
-
 }
