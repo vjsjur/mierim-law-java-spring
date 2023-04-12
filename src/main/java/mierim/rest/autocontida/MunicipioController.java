@@ -32,6 +32,13 @@ public class MunicipioController {
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Municipio não Encontrado"));
     }
+
+    @GetMapping("/buscasigla/")
+    public List<Municipio> pesquisar(
+            @RequestParam(value = "siglauf", required = false, defaultValue = "") String siglauf
+    ) {
+        return municipioRepository.findBySiglaUfMunicipio("%" + siglauf + "%");
+    }
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Municipio salvar(@RequestBody @Valid Municipio municipio){

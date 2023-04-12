@@ -23,7 +23,6 @@ public class Municipio implements Serializable {
 
     @Id
     private Integer id;
-    private Integer id_rec;
     private Integer id_rec_status;
     private String cod_uf;
     private String sigla_uf;
