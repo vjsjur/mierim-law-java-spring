@@ -34,6 +34,9 @@ public class Municipio implements Serializable {
     private String cod_mun;
     private String cod_mun_comp;
     private String nome_mun;
+    private String cod_pais;
+    private String sigla_pais;
+    private String nome_pais;
 
     @Override
     public int hashCode() {

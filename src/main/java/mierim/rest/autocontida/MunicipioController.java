@@ -39,6 +39,21 @@ public class MunicipioController {
     ) {
         return municipioRepository.findBySiglaUfMunicipio("%" + siglauf + "%");
     }
+
+    @GetMapping("/buscaestado/")
+    public List<Object[]> buscaestado(
+            @RequestParam(value = "siglapais", required = false, defaultValue = "") String siglapais
+    ) {
+        return municipioRepository.findByUf("%" + siglapais + "%");
+    }
+
+    @GetMapping("/buscamunicipio/")
+    public List<Object[]> buscamunicipio(
+            @RequestParam(value = "siglmun", required = false, defaultValue = "") String siglmun
+    ) {
+        return municipioRepository.findByMunicipio("%" + siglmun + "%");
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Municipio salvar(@RequestBody @Valid Municipio municipio){
