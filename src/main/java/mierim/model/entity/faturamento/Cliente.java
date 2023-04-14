@@ -84,12 +84,13 @@ public class Cliente implements Serializable {
     private Escritorio escritorio_faturamento;
     private String escritorio_faturamento_nome;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_municipio")
     private Municipio municipio;
-    private String pais_nome;
-    private String unidade_federativa_nome;
 
+    private String id_uf;
+
+    private String id_pais;
     @NotEmpty(message = "PREENCHA O CÓDIGO!")
     private String endereco;
     private String bairro;

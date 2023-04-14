@@ -1,6 +1,7 @@
 package mierim.model.entity.sistema;
 
 import lombok.*;
+import mierim.model.entity.autocontida.Municipio;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -35,8 +36,13 @@ public class Sis_CompanyFilial {
     private String cep;
     @Column(nullable=false, length=60)
     private String bairro;
-    private String municipio;
-    private String uf;
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_municipio")
+    private Municipio municipio;
+
+    private String id_uf;
+
+    private String id_pais;
 
     @Column(nullable=false, length=120)
     private String email;

@@ -1,5 +1,6 @@
 package mierim.model.entity.juridico;
 
+import mierim.model.entity.autocontida.Municipio;
 import mierim.model.entity.autocontida.UnidadeFederativa;
 import mierim.model.entity.autocontida.Pais;
 import lombok.AllArgsConstructor;
@@ -35,14 +36,13 @@ public class Jur_Comarca implements Serializable {
     @NotEmpty(message = "PREENCHA DESCRIÇÃO!")
     private String descricao;
 
-    @ManyToOne
-    @JoinColumn(name = "id_pais")
-    private Pais id_pais;
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_municipio")
+    private Municipio municipio;
 
-    @ManyToOne
-    @JoinColumn(name = "id_estado")
-    private UnidadeFederativa id_estado;
+    private String id_uf;
 
+    private String id_pais;
     @NotEmpty(message = "PREENCHA STATUS!")
     private String status = "1";
     private String deletado = "2";

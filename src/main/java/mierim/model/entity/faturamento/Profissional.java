@@ -51,24 +51,14 @@ public class Profissional implements Serializable {
     private Date data_demissao;
     private String tipo;
     private String sexo;
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_municipio")
     private Municipio municipio;
-    @ManyToOne
-    @JoinColumn(name = "id_estado")
-    private UnidadeFederativa id_estado;
-    @ManyToOne
-    @JoinColumn(name = "id_pais")
 
+    private String id_uf;
 
-
-
-
-
-
-
-    
-    private Pais id_pais;
+    private String id_pais;
     @ManyToOne
     @JoinColumn(name = "id_categoria")
     private Categoria categoria;

@@ -21,6 +21,7 @@ import java.util.Date;
 @Entity(name = "jur_andamento_padrao")
 public class Jur_AndamentoPadrao implements Serializable {
 
+
     private static final long serialVersionUID = 0L;
 
     @Id
