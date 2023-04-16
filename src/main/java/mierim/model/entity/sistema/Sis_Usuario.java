@@ -11,6 +11,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,8 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity(name = "sis_usuario" +
-        "")
+@Entity(name = "sis_usuario")
 public class Sis_Usuario implements Serializable {
 
     private static final long serialVersionUID = 0L;

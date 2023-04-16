@@ -1,6 +1,10 @@
 package mierim.model.entity.sistema;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerator;
 import lombok.*;
 import mierim.model.entity.autocontida.Municipio;
 
@@ -22,6 +26,7 @@ import java.util.Objects;
                 @UniqueConstraint(columnNames = {"id_tenant_company","id_tenant", "deletado", "cpf_cnpj"}, name = "company_cpf_cnpj_uk")
         }
 )
+
 public class Sis_CompanyEmpresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,6 +49,7 @@ public class Sis_CompanyEmpresa {
     private String bairro;
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_municipio")
+    @JsonBackReference
     private Municipio municipio;
 
     private String id_uf;
@@ -60,6 +66,7 @@ public class Sis_CompanyEmpresa {
     @NotNull(message = "Preencha o Grupo Econômico!")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant")
+    @JsonBackReference
     private Sis_CompanyGroup sis_company_group;
 
 
@@ -67,6 +74,7 @@ public class Sis_CompanyEmpresa {
 
     @OneToMany
     @JoinColumn(name = "id_tenant_company")
+    @JsonManagedReference
     private List<Sis_CompanyFilial> sis_company_filial;
 
     @Override

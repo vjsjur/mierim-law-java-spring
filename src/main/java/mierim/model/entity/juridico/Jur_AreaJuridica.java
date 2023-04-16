@@ -30,9 +30,6 @@ public class Jur_AreaJuridica implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "locado", length = 1)
-    private Integer locado = 2;
-    private String filtro;
 
     @NotEmpty(message = "PREENCHA O CÓDIGO!")
     @Column(name = "codigo", length = 10)

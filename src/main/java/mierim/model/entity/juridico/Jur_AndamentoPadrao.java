@@ -1,5 +1,8 @@
 package mierim.model.entity.juridico;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,6 +22,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 @Entity(name = "jur_andamento_padrao")
+
 public class Jur_AndamentoPadrao implements Serializable {
 
 
@@ -35,6 +39,7 @@ public class Jur_AndamentoPadrao implements Serializable {
     @NotNull(message = "Preencha o Usuário de Aleração")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_usuario_inclusao")
+    @JsonBackReference
     private Sis_Usuario sis_usuario_inclusao;
 
     @Temporal(javax.persistence.TemporalType.DATE)

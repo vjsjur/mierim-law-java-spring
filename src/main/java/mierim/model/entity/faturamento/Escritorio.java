@@ -58,20 +58,20 @@ public class Escritorio implements Serializable {
     private String logradouro;
     private String complemento;
     private String bairro;
-    private String unidade_federativa;
-    private String pais;
 
-    @ManyToOne
-    @JoinColumn(name = "id_pais")
-    private Pais id_pais;
 
     @ManyToOne
     @JoinColumn(name = "id_municipio")
     private Municipio municipio;
 
-    @ManyToOne
-    @JoinColumn(name = "id_estado")
-    private UnidadeFederativa id_estado;
+    private String id_uf;
+
+    private String id_pais;
+
+    @NotNull(message = "Preencha o Usuário de Inclusão")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_usuario_inclusao")
+    private Sis_Usuario sis_usuario_inclusao;
 
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date data_inclusao;

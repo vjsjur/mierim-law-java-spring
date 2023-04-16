@@ -20,6 +20,7 @@ import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
@@ -29,7 +30,7 @@ import javax.persistence.*;
 @Table(uniqueConstraints =
         { 
             @UniqueConstraint(columnNames = {"sigla", "deletado"}, name = "profissionalsigla_uk"),
-            @UniqueConstraint(columnNames = {"id_usuario", "deletado"}, name = "profissionalusuario_uk")  
+            @UniqueConstraint(columnNames = {"id_usuario", "deletado"}, name = "profissionalusuario_uk")
                 }
 )
 public class Profissional implements Serializable {
@@ -68,9 +69,7 @@ public class Profissional implements Serializable {
     @ManyToOne
     @JoinColumn(name = "id_departamento")
     private Departamento departamento;
-    @ManyToOne
-    @JoinColumn(name = "id_usuario")
-    private Sis_Usuario usuario;
+
     @ManyToOne
     @JoinColumn(name = "id_centro_custo")
     private Centrocusto centrocusto;
@@ -120,6 +119,25 @@ public class Profissional implements Serializable {
     @JoinColumn(name = "id_tenant_filial")
     private Sis_CompanyFilial sis_filial;
 
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_usuario_inclusão")
+    private Sis_Usuario sis_usuario_inclusao;
+
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date data_inclusao;
+
+//    @NotNull(message = "Preencha o Usuário de Aleração")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_usuario_alteracao")
+    private Sis_Usuario sis_usuario_alteracao;
+
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date data_alteracao = new Date();
+
+
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_usuario")
+    private Sis_Usuario sis_usuario;
 
 
 

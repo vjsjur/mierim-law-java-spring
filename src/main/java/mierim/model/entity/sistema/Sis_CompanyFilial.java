@@ -1,5 +1,7 @@
 package mierim.model.entity.sistema;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import mierim.model.entity.autocontida.Municipio;
 
@@ -54,16 +56,15 @@ public class Sis_CompanyFilial {
     @NotNull(message = "Preencha o Grupo Econômico!")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant")
+    @JsonBackReference
     private Sis_CompanyGroup sis_company_group;
 
     @NotNull(message = "Preencha Empresa!")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant_company")
+    @JsonBackReference
     private Sis_CompanyEmpresa sis_empresa;
 
-    @OneToMany
-    @JoinColumn(name = "id_tenant_filial")
-    private List<Sis_Menu> sis_menu;
 
     @Override
     public boolean equals(Object o) {

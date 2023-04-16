@@ -34,6 +34,11 @@ public class Categoria implements Serializable {
     private double meta_horas_dia;
     private String deletado = "2";
 
+    //@NotNull(message = "Preencha o Usuário de Inclusão")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_usuario_inclusão")
+    private Sis_Usuario sis_usuario_inclusao;
+
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date data_inclusao;
 
