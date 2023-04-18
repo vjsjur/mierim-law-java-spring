@@ -54,6 +54,11 @@ public class MunicipioController {
         return municipioRepository.findByMunicipio("%" + siglmun + "%");
     }
 
+    @GetMapping("/buscapais/")
+    public List<Object[]> buscapais() {
+        return municipioRepository.findByPais();
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Municipio salvar(@RequestBody @Valid Municipio municipio){

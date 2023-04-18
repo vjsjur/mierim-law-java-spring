@@ -17,4 +17,7 @@ public interface MunicipioRepository extends JpaRepository<Municipio, Integer> {
 
     @Query(" select s.nome_mun from cad_municipio s where upper( s.sigla_uf ) like upper( :siglmun ) order by 1" )
         List<Object[]> findByMunicipio(@Param("siglmun") String siglmun);
+
+    @Query(" select distinct s.sigla_pais from cad_municipio s  order by 1" )
+    List<Object[]> findByPais();
 }
