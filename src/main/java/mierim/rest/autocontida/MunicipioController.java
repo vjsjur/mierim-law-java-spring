@@ -25,7 +25,6 @@ public class MunicipioController {
         return municipioRepository
                 .findAll();
     }
-
     @GetMapping("{id}")
     public Municipio acharPorId(@PathVariable Integer id){
         return municipioRepository

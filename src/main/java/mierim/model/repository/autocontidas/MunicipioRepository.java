@@ -20,4 +20,5 @@ public interface MunicipioRepository extends JpaRepository<Municipio, Integer> {
 
     @Query(" select distinct new cad_municipio(s.sigla_pais, s.nome_pais, s.cod_pais) from cad_municipio s  order by 1" )
     List<Municipio> findByPais();
+
 }
