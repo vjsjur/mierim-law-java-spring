@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface Jur_AreaJuridicaRepository  extends JpaRepository<Jur_AreaJuridica, Long> {
 
+      public List<Jur_AreaJuridica> findByDescricaoContaining(String nome);
+
 }

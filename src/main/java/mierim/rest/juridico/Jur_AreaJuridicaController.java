@@ -18,17 +18,21 @@ import java.util.List;
 public class Jur_AreaJuridicaController{
 
     @Autowired
-    private final Jur_AreaJuridicaRepository jur_areaJuridicaRepository;
+    private final Jur_AreaJuridicaRepository areaJuridicaRepository;
 
-    @GetMapping
+    @GetMapping("/listar_todos")
     public List<Jur_AreaJuridica> listarTodos(){
-        return jur_areaJuridicaRepository
-                .findAll();
+        return areaJuridicaRepository.findAll();
+    }
+
+    @GetMapping("/listar_por_nome")
+    public List<Jur_AreaJuridica> listarPorNome(String nome){
+        return areaJuridicaRepository.findByDescricaoContaining(nome);
     }
 
     @GetMapping("{id}")
     public Jur_AreaJuridica acharPorId(@PathVariable Long id){
-        return jur_areaJuridicaRepository
+        return areaJuridicaRepository
                 .findById(id)
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Objeto não Encontrado"));
     }
@@ -36,19 +40,19 @@ public class Jur_AreaJuridicaController{
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Jur_AreaJuridica salvar(@RequestBody @Valid Jur_AreaJuridica jur_areajuridica){
-        return jur_areaJuridicaRepository
+        return areaJuridicaRepository
                 .save(jur_areajuridica);
     }
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void atualizaAreaJuridica(@PathVariable Long id, @RequestBody Jur_AreaJuridica jurAreaJuridicaAtualizada) {
-        jur_areaJuridicaRepository
+        areaJuridicaRepository
                 .findById(id)
                 .map(jur_Objeto -> {
                     jurAreaJuridicaAtualizada
                             .setId(jur_Objeto.getId());
-                    return jur_areaJuridicaRepository
+                    return areaJuridicaRepository
                             .save(jurAreaJuridicaAtualizada);
                 })
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Objeto não Encontrado"));
@@ -57,10 +61,10 @@ public class Jur_AreaJuridicaController{
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void excluir(@PathVariable Long id){
-        jur_areaJuridicaRepository
+        areaJuridicaRepository
                 .findById(id)
                 .map(jur_areajuridica -> {
-                    jur_areaJuridicaRepository.delete(jur_areajuridica);
+                    areaJuridicaRepository.delete(jur_areajuridica);
                     return Void.TYPE;
                 })
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Objeto não Encontrado"));
