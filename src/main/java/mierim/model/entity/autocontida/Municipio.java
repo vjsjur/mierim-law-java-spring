@@ -38,6 +38,31 @@ public class Municipio implements Serializable {
     private String sigla_pais;
     private String nome_pais;
 
+    public Municipio(String cod_pais, String sigla_pais, String nome_pais) {
+        this.cod_pais = cod_pais;
+        this.sigla_pais = sigla_pais;
+        this.nome_pais = nome_pais;
+    }
+    public Municipio(String cod_uf, String sigla_uf, String nome_Uf, String cod_pais, String sigla_pais, String nome_pais) {
+        this.cod_uf = cod_uf;
+        this.sigla_uf = sigla_uf;
+        this.nome_Uf = nome_Uf;
+        this.cod_pais = cod_pais;
+        this.sigla_pais = sigla_pais;
+        this.nome_pais = nome_pais;
+    }
+
+    public Municipio(String cod_mun, String cod_mun_comp, String nome_mun, String cod_uf, String sigla_uf, String nome_Uf, String cod_pais, String sigla_pais, String nome_pais) {
+        this.cod_mun = cod_mun;
+        this.cod_mun_comp= cod_mun_comp;
+        this.nome_mun = nome_mun;
+        this.cod_uf = cod_uf;
+        this.sigla_uf = sigla_uf;
+        this.nome_Uf = nome_Uf;
+        this.cod_pais = cod_pais;
+        this.sigla_pais = sigla_pais;
+        this.nome_pais = nome_pais;
+    }
     @Override
     public int hashCode() {
         int hash = 5;
