@@ -17,9 +17,14 @@ INSERT INTO public.sis_company_filial(
 --SIS_USUARIO
 INSERT INTO public.sis_usuario(
 	id, ativo, bloqueado, celular, e_mail, nivel_visao_campo, palavra_passe, senha, tentativas, usuario, usuario_ad, id_tenant, id_tenant_company, id_tenant_filial)
-	VALUES (2, true, 'N', '1198787979', 'vagner.santos@mierim.com.br', '10', 'sãapaulo', 'teste', 1, 'vjdsantos', 'vagner.santos', 10, 10, 10);
+	VALUES (1, 'S', 'N', '11', 'admin@mierim.com.br', '10', 'sãapaulo', 'teste', 1, 'admin', 'admin.mierim', 10, 10, 10);
 
---SIS_USUARIO_COMPLEMENTO
+INSERT INTO public.sis_usuario(
+	id, ativo, bloqueado, celular, e_mail, nivel_visao_campo, palavra_passe, senha, tentativas, usuario, usuario_ad, id_tenant, id_tenant_company, id_tenant_filial)
+	VALUES (2, 'S', 'N', '1198787979', 'vagner.santos@mierim.com.br', '10', 'sãapaulo', 'teste', 1, 'vjdsantos', 'vagner.santos', 10, 10, 10);
+
+--SIS_USUARIO_COMPLEMENTO *DEIXOU DE EXISTIR*
+/*
 INSERT INTO sis_usuario_complemento
 (grau_permissao, usuario_ad, id, id_tenant)
 VALUES('', '', 1, 10);
@@ -27,26 +32,28 @@ VALUES('', '', 1, 10);
 INSERT INTO sis_usuario_complemento
 (grau_permissao, usuario_ad, id, id_tenant)
 VALUES('', '', 2, 10);
+*/
 
 /*** AVALIAR/REVISAR PARECEM SER TABELAS ANTIGAS ***/
 --usuario, USUARIO_PROFESSOR , cad_pais *** AVALIAR/REVISAR *** 
-INSERT INTO usuario
+/*INSERT INTO usuario
 (ativo, email, email_bkp, login, nivel_visao_campo, nome, senha, id_tenant, id_tenant_company, id_tenant_filial)
 VALUES(false, '', '', '', 0, '', '', 10, 10, 10);
+*/
 
-INSERT INTO usuario_professor
+/*INSERT INTO usuario_professor
 (grau_intrucao, usuario_ad, id, id_tenant)
 VALUES('', '', 1, 10);
 
 INSERT INTO cad_pais
 (id, codigo, descricao, descricao_formal)
 VALUES(1058, '1058 novo', '', '');
-
+*/
 
 --CAD_AREA_JURIDICA
 INSERT INTO public.cad_area_juridica(
 	id, codigo, data_alteracao, data_inclusao, deletado, descricao,  status, tecnico, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusao)
-	VALUES (1, 'TRAB', '2023-02-26',  '2023-02-26', '2', 'Trabalhista', 'A', 'N', 10, 10 , 10, 1,1);
+	VALUES (1, 'TRAB', '2023-02-26',  '2023-02-26', '2', 'Trabalhista', 'A', 'N', 10, 10 , 10, null,1);
 
 INSERT INTO public.cad_area_juridica(
 	id, codigo, data_alteracao, data_inclusao, deletado, descricao,  status, tecnico, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusao)
