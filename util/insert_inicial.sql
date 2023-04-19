@@ -53,74 +53,74 @@ VALUES(1058, '1058 novo', '', '');
 --CAD_AREA_JURIDICA
 INSERT INTO public.cad_area_juridica(
 	id, codigo, data_alteracao, data_inclusao, deletado, descricao,  status, tecnico, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusao)
-	VALUES (1, 'TRAB', '2023-02-26',  '2023-02-26', '2', 'Trabalhista', 'A', 'N', 10, 10 , 10, null,1);
+	VALUES (1, 'TRAB', '2023-02-26',  '2023-02-26', '2', 'Trabalhista', 'A', 'N', 10, 10 , 10, null, 1);
 
 INSERT INTO public.cad_area_juridica(
 	id, codigo, data_alteracao, data_inclusao, deletado, descricao,  status, tecnico, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusao)
-	VALUES (2, 'TRIB', '2023-02-26',  '2023-02-26', '2', 'Tributária', 'A', 'N', 10, 10 , 10, 1,1);
+	VALUES (2, 'TRIB', '2023-02-26',  '2023-02-26', '2', 'Tributária', 'A', 'N', 10, 10 , 10, null, 1);
 
 INSERT INTO public.cad_area_juridica(
 	id, codigo, data_alteracao, data_inclusao, deletado, descricao,  status, tecnico, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusao)
-	VALUES (3, 'CIV', '2023-02-26',  '2023-02-26', '2', 'Cível', 'A', 'N', 10, 10 , 10, 1,1);
+	VALUES (3, 'CIV', '2023-02-26',  '2023-02-26', '2', 'Cível', 'A', 'N', 10, 10 , 10, null, 1);
 	
 INSERT INTO public.cad_area_juridica(
 	id, codigo, data_alteracao, data_inclusao, deletado, descricao,  status, tecnico, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusao)
-	VALUES (4, 'CONST', '2023-02-26',  '2023-02-26', '2', 'Contitucional', 'A', 'N', 10, 10 , 10, 1,1);
+	VALUES (4, 'CONST', '2023-02-26',  '2023-02-26', '2', 'Contitucional', 'A', 'N', 10, 10 , 10, null, 1);
 	
 INSERT INTO public.cad_area_juridica(
 	id, codigo, data_alteracao, data_inclusao, deletado, descricao,  status, tecnico, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusao)
-	VALUES (5, 'PREV', '2023-02-26',  '2023-02-26', '2', 'Previdenciário', 'A', 'N', 10, 10 , 10, 1,1);	
+	VALUES (5, 'PREV', '2023-02-26',  '2023-02-26', '2', 'Previdenciário', 'A', 'N', 10, 10 , 10, null, 1);	
 
 --cad_profissional_cargo
 INSERT INTO public.cad_profissional_cargo(
 	id, deletado, descricao, status, tecnico, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusao)
-	VALUES (1, '2', 'Advogado JR I', 'A', 'S', '2021-12-21', '2021-12-21', 10, 10, 10, 1, 1);
+	VALUES (1, '2', 'Advogado JR I', 'A', 'S', '2021-12-21', '2021-12-21', 10, 10, 10, null, 1);
 
 INSERT INTO public.cad_profissional_cargo(
 	id, deletado, descricao, status, tecnico, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusao)
-	VALUES (2, '2', 'Advogado JR II', 'A', 'S', '2021-12-21', '2021-12-21', 10, 10, 10, 1, 1);
+	VALUES (2, '2', 'Advogado JR II', 'A', 'S', '2021-12-21', '2021-12-21', 10, 10, 10, null, 1);
 
 INSERT INTO public.cad_profissional_cargo(
 	id, deletado, descricao, status, tecnico, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusao)
-	VALUES (3, '2', 'Advogado JR III', 'A', 'S', '2021-12-21', '2021-12-21', 10, 10, 10, 1, 1);
+	VALUES (3, '2', 'Advogado JR III', 'A', 'S', '2021-12-21', '2021-12-21', 10, 10, 10, null, 1);
 
 INSERT INTO public.cad_profissional_cargo(
 	id, deletado, descricao, status, tecnico, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusao)
-	VALUES (4, '2', 'Advogado PL I', 'A', 'S', '2021-12-21', '2021-12-21', 10, 10, 10, 1, 1);
+	VALUES (4, '2', 'Advogado PL I', 'A', 'S', '2021-12-21', '2021-12-21', 10, 10, 10, null, 1);
 
 INSERT INTO public.cad_profissional_cargo(
 	id, deletado, descricao, status, tecnico, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusao)
-	VALUES (5, '2', 'Advogado PL II', 'A', 'S', '2021-12-21', '2021-12-21', 10, 10, 10, 1, 1);
+	VALUES (5, '2', 'Advogado PL II', 'A', 'S', '2021-12-21', '2021-12-21', 10, 10, 10, null, 1);
 
 INSERT INTO public.cad_profissional_cargo(
 	id, deletado, descricao, status, tecnico, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusao)
-	VALUES (6, '2', 'Advogado PL III', 'A', 'S', '2021-12-21', '2021-12-21', 10, 10, 10, 1, 1);
+	VALUES (6, '2', 'Advogado PL III', 'A', 'S', '2021-12-21', '2021-12-21', 10, 10, 10, null, 1);
 
 --CAtegoria
 INSERT INTO public.cad_categoria(
 	id, assina_fat, data_alteracao, data_inclusao, deletado, descricao, meta_horas_dia, status, tecnico, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao)
-	VALUES (1, 'S', '2023-02-21', '2023-02-21', '2', 'Advogado JR I', 8, 'A', 'S', 10, 10, 10, 1);
+	VALUES (1, 'S', '2023-02-21', '2023-02-21', '2', 'Advogado JR I', 8, 'A', 'S', 10, 10, 10, null);
 
 INSERT INTO public.cad_categoria(
 	id, assina_fat, data_alteracao, data_inclusao, deletado, descricao, meta_horas_dia, status, tecnico, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao)
-	VALUES (2, 'S', '2023-02-21', '2023-02-21', '2', 'Advogado JR II', 8, 'A', 'S', 10, 10, 10, 1);
+	VALUES (2, 'S', '2023-02-21', '2023-02-21', '2', 'Advogado JR II', 8, 'A', 'S', 10, 10, 10, null);
 
 
 INSERT INTO public.cad_categoria(
 	id, assina_fat, data_alteracao, data_inclusao, deletado, descricao, meta_horas_dia, status, tecnico, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao)
-	VALUES (3, 'S', '2023-02-21', '2023-02-21', '2', 'Advogado JR III', 8, 'A', 'S', 10, 10, 10, 1);
+	VALUES (3, 'S', '2023-02-21', '2023-02-21', '2', 'Advogado JR III', 8, 'A', 'S', 10, 10, 10, null);
 
 INSERT INTO public.cad_categoria(
 	id, assina_fat, data_alteracao, data_inclusao, deletado, descricao, meta_horas_dia, status, tecnico, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao)
-	VALUES (4, 'S', '2023-02-21', '2023-02-21', '2', 'Advogado PL I', 8, 'A', 'S', 10, 10, 10, 1);
+	VALUES (4, 'S', '2023-02-21', '2023-02-21', '2', 'Advogado PL I', 8, 'A', 'S', 10, 10, 10, null);
 
 INSERT INTO public.cad_categoria(
 	id, assina_fat, data_alteracao, data_inclusao, deletado, descricao, meta_horas_dia, status, tecnico, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao)
-	VALUES (5, 'S', '2023-02-21', '2023-02-21', '2', 'Advogado PL II', 8, 'A', 'S', 10, 10, 10, 1);
+	VALUES (5, 'S', '2023-02-21', '2023-02-21', '2', 'Advogado PL II', 8, 'A', 'S', 10, 10, 10, null);
 
 INSERT INTO public.cad_categoria(
 	id, assina_fat, data_alteracao, data_inclusao, deletado, descricao, meta_horas_dia, status, tecnico, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao)
-	VALUES (6, 'S', '2023-02-21', '2023-02-21', '2', 'Advogado PL III', 8, 'A', 'S', 10, 10, 10, 1);
+	VALUES (6, 'S', '2023-02-21', '2023-02-21', '2', 'Advogado PL III', 8, 'A', 'S', 10, 10, 10, null);
 
 
 --ESCRITÓRIO
@@ -133,33 +133,33 @@ INSERT INTO public.cad_escritorio(
 -- Centro de Custo *** AVALIAR/REVISAR ***
 INSERT INTO cad_centro_custo
 (id, classe, codigo, condicao, deletado, descricao, saldo, status, id_escritorio, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusão)
-VALUES(3,'', '3', '', '', '', 0, '', 1, '2022-01-01', '2022-01-01', 10, 10, 10, 1, 1);
+VALUES(3,'', '3', '', '', '', 0, '', 1, '2022-01-01', '2022-01-01', 10, 10, 10, null, 1);
 
 
 --Departamento
 INSERT INTO public.cad_departamento(
-	id, deletado, descricao, status, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, "id_usuario_inclusão")
-	VALUES (1, '2', 'Jurídico', 'A', '2021-10-01', '2021-10-01', 10, 10, 10, 1, 1);
+	id, deletado, descricao, status, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusão)
+	VALUES (1, '2', 'Jurídico', 'A', '2021-10-01', '2021-10-01', 10, 10, 10, null, 1);
 
 INSERT INTO public.cad_departamento(
-	id, deletado, descricao, status, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, "id_usuario_inclusão")
-	VALUES (2, '2', 'Financeiro', 'A', '2021-10-01', '2021-10-01', 10, 10, 10, 1, 1);
+	id, deletado, descricao, status, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusão)
+	VALUES (2, '2', 'Financeiro', 'A', '2021-10-01', '2021-10-01', 10, 10, 10, null, 1);
 
 INSERT INTO public.cad_departamento(
-	id, deletado, descricao, status, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, "id_usuario_inclusão")
-	VALUES (3, '2', 'Faturamento', 'A', '2021-10-01', '2021-10-01', 10, 10, 10, 1, 1);
+	id, deletado, descricao, status, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusão)
+	VALUES (3, '2', 'Faturamento', 'A', '2021-10-01', '2021-10-01', 10, 10, 10, null, 1);
 
 INSERT INTO public.cad_departamento(
-	id, deletado, descricao, status, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, "id_usuario_inclusão")
-	VALUES (4, '2', 'Tecnologia', 'A', '2021-10-01', '2021-10-01', 10, 10, 10, 1, 1);
+	id, deletado, descricao, status, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusão)
+	VALUES (4, '2', 'Tecnologia', 'A', '2021-10-01', '2021-10-01', 10, 10, 10, null, 1);
 
 INSERT INTO public.cad_departamento(
-	id, deletado, descricao, status, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, "id_usuario_inclusão")
-	VALUES (5, '2', 'Recursos Humanos', 'A', '2021-10-01', '2021-10-01', 10, 10, 10, 1, 1);
+	id, deletado, descricao, status, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusão)
+	VALUES (5, '2', 'Recursos Humanos', 'A', '2021-10-01', '2021-10-01', 10, 10, 10, null, 1);
 
 INSERT INTO public.cad_departamento(
-	id, deletado, descricao, status, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, "id_usuario_inclusão")
-	VALUES (6, '1', 'RH', 'A', '2021-10-01', '2021-10-01', 10, 10, 10, 1, 1);
+	id, deletado, descricao, status, data_alteracao, data_inclusao, id_tenant, id_tenant_company, id_tenant_filial, id_usuario_alteracao, id_usuario_inclusão)
+	VALUES (6, '1', 'RH', 'A', '2021-10-01', '2021-10-01', 10, 10, 10, null, 1);
 	
 
 --Profissional
