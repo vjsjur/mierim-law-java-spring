@@ -4,7 +4,7 @@ import javax.persistence.Id;
 
 public class MunicipioDTO {
 
-    private Integer id;
+    public Integer id;
     public String cod_mun;
     public String cod_mun_comp;
     public String nome_mun;
