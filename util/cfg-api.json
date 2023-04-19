@@ -1,0 +1,67 @@
+{
+    "avaliar1": "api/jur_tipovalor/",
+    "avaliar2": "api/jur_tipocompromisso/",
+    "avaliar3": "api/jur_tipoenvolvimento/",
+    "avaliar4": "api/jur_tiporesponsabilidade/",
+    "avaliar5": "api/cidade/",
+    "avaliar6": "api/caso/",
+    "avaliar7": "api/company_empresa/",
+    "avaliar8": "api/atividadetimesheet/",
+    "avaliar9": "api/jur_objeto/",
+    "avaliar10": "api/jur_motivo_encerramento/",
+    "avaliar11": "api/casoexcecaocategoria/",
+    "avaliar12": "api/casoexcecaoprofissional/",
+
+    "com erro1": "api/atividadetimesheetidioma/",
+    "com erro2": "api/jur_natureza/",
+    
+    "category": {
+        "getAll": "api/categoria",
+        "getById": "",
+        "getByCod": "",
+        "createRec": "",
+        "updateRec": "",
+        "deleteRec": ""
+    },
+    "company": {
+        "getAll": "api/company_group",
+        "getById": "",
+        "getByCod": "",
+        "createRec": "",
+        "updateRec": "",
+        "deleteRec": ""
+    },
+    "customers": {
+        "getAll": "api/cliente",
+        "getById": "",
+        "getByCod": "",
+        "createRec": "",
+        "updateRec": "",
+        "deleteRec": ""
+    },
+    "util": {
+        "getGeoById": "",
+        "getGeoCountry": "api/municipio/buscapais/",
+        "getGeoCountryByCod": "",
+        "getGeoState": "api/municipio/buscaestado/?siglapais=",
+        "getGeoStateByCod": "",
+        "getGeoCity": "api/municipio/buscaestado/?siglmun=",
+        "getGeoCityByCod": ""
+    },
+    "jur-area": {
+        "getAll": "api/jur_area_juridica/listar_todos",
+        "getById": "",
+        "getByCod": "api/jur_area_juridica/listar_por_contem?nome=",
+        "createRec": "",
+        "updateRec": "",
+        "deleteRec": ""
+    },
+    "professionals": {
+        "getAll": "api/profissional",
+        "getById": "",
+        "getByCod": "",
+        "createRec": "",
+        "updateRec": "",
+        "deleteRec": ""
+    }
+}
