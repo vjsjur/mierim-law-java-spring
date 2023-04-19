@@ -27,7 +27,7 @@ public class Jur_AreaJuridicaController{
 
     @GetMapping("/listar_por_contem")
     public List<Jur_AreaJuridica> listarPorNome(String nome){
-        return areaJuridicaRepository.findByDescricaoContaining(nome);
+        return areaJuridicaRepository.findByDescricaoContainingIgnoreCase(nome);
     }
 
     @GetMapping("{id}")
