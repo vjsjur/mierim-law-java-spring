@@ -22,7 +22,7 @@ public class Municipio implements Serializable {
     private Integer id_rec_status;
     private String cod_uf;
     private String sigla_uf;
-    private String nome_Uf;
+    private String nome_uf;
     private String cod_mesor_geog;
     private String nome_mesor;
     private String cod_micror_geog;
