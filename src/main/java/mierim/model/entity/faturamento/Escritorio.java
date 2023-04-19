@@ -5,19 +5,17 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import mierim.model.entity.autocontida.Municipio;
-import mierim.model.entity.autocontida.Pais;
-import mierim.model.entity.autocontida.UnidadeFederativa;
 import mierim.model.entity.sistema.Sis_CompanyEmpresa;
 import mierim.model.entity.sistema.Sis_CompanyFilial;
 import mierim.model.entity.sistema.Sis_CompanyGroup;
 import mierim.model.entity.sistema.Sis_Usuario;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.NotEmpty;
 
 @Data
 @NoArgsConstructor

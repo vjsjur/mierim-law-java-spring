@@ -25,6 +25,7 @@ public class MunicipioController {
         return municipioRepository
                 .findAll();
     }
+
     @GetMapping("{id}")
     public Municipio acharPorId(@PathVariable Integer id){
         return municipioRepository
@@ -40,21 +41,21 @@ public class MunicipioController {
     }
 
     @GetMapping("/buscaestado/")
-    public List<Municipio> buscaestado(
+    public List<Object[]> buscaestado(
             @RequestParam(value = "siglapais", required = false, defaultValue = "") String siglapais
     ) {
         return municipioRepository.findByUf("%" + siglapais + "%");
     }
 
     @GetMapping("/buscamunicipio/")
-    public List<Municipio> buscamunicipio(
+    public List<Object[]> buscamunicipio(
             @RequestParam(value = "siglmun", required = false, defaultValue = "") String siglmun
     ) {
         return municipioRepository.findByMunicipio("%" + siglmun + "%");
     }
 
     @GetMapping("/buscapais/")
-    public List<Municipio> buscapais() {
+    public List<Object[]> buscapais() {
         return municipioRepository.findByPais();
     }
 
@@ -90,5 +91,4 @@ public class MunicipioController {
                 })
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Municipio não Encontrado"));
     }
-
 }

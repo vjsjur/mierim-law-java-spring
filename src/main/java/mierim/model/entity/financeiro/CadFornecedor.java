@@ -5,23 +5,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import mierim.model.entity.autocontida.Municipio;
-import mierim.model.entity.autocontida.Pais;
-import mierim.model.entity.autocontida.UnidadeFederativa;
 import mierim.model.entity.faturamento.Grupocliente;
 import mierim.model.entity.faturamento.Profissional;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Data
 @NoArgsConstructor
@@ -67,15 +56,6 @@ public class CadFornecedor implements Serializable {
     @ManyToOne
     @JoinColumn(name = "id_profissional")
     private Profissional id_profissional;
-
-    @OneToOne
-    @JoinColumn(name = "id_pais")
-    private Pais pais;
-
-    @ManyToOne
-    @JoinColumn(name = "id_estado")
-    private UnidadeFederativa estado;
-
     @ManyToOne
     @JoinColumn(name = "id_municipio")
     private Municipio municipio;
