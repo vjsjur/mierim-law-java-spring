@@ -1,9 +1,9 @@
 package mierim.rest.dto;
 
 public class MunicipioDTO {
-    private String cod_mun;
-    private String cod_mun_comp;
-    private String nome_mun;
+    public String cod_mun;
+    public String cod_mun_comp;
+    public String nome_mun;
 
     public MunicipioDTO(String cod_mun, String cod_mun_comp, String nome_mun) {
         this.cod_mun = cod_mun;
