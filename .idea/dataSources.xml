@@ -17,11 +17,18 @@
       <jdbc-url>jdbc:postgresql://150.230.84.220:5432/mierimlaw_dev</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="d4sd7eff4u9khi@ec2-50-17-21-26.compute-1.amazonaws.com" uuid="4bb7ed20-77cf-4971-aebd-178c7009fb96">
+    <data-source source="LOCAL" name="PostgreSQL" uuid="9d872dc3-0550-4418-8411-19ddad3478d1">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://ec2-50-17-21-26.compute-1.amazonaws.com:5432/d4sd7eff4u9khi</jdbc-url>
+      <jdbc-url>jdbc:    postgres://lodxzodiynqjzz:a4af68f53d2af2e909b863fb97667d49d757a0f4881a79bd3a202be4f36c876b@ec2-54-234-13-16.compute-1.amazonaws.com:5432/debqd0fa9ghrg7</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="debqd0fa9ghrg7@ec2-54-234-13-16.compute-1.amazonaws.com" uuid="04186aa2-61a7-4975-9e8c-7b8acbb8fa26">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ec2-54-234-13-16.compute-1.amazonaws.com:5432/debqd0fa9ghrg7</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
