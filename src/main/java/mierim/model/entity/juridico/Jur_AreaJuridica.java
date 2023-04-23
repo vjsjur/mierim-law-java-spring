@@ -1,5 +1,6 @@
 package mierim.model.entity.juridico;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -47,8 +48,8 @@ public class Jur_AreaJuridica implements Serializable {
     @Column(name = "status", length = 1)
     private String status;
 
-    @OneToMany
-    @JoinColumn(name = "id_area")
+    @OneToMany(mappedBy = "jurAreaJuridica")
+    @JsonIgnore
     private List<Jur_AreaJuridicaSub> subarea;
 
     @Column(name = "deletado", length = 1)

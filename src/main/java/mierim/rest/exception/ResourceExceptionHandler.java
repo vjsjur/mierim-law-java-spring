@@ -15,7 +15,7 @@ public class ResourceExceptionHandler {
     @ExceptionHandler(ObjectNotFoundException.class)
     public ResponseEntity<StanderdError> objectNotFaundException(ObjectNotFoundException ex, HttpServletRequest request){
          StanderdError error = new StanderdError(System.currentTimeMillis(), HttpStatus.NOT_FOUND.value(),
-                 "Object Not Faund", ex.getMessage(), request.getRequestURI());
+                 "Object Not Found", ex.getMessage(), request.getRequestURI());
                      return  ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
 }
