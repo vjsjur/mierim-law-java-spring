@@ -118,7 +118,7 @@ public class Sis_CompanyEmpresa {
         this.status = obj.getStatus();
         this.data_inclusao = obj.getData_inclusao();
         this.data_alteracao = obj.getData_alteracao();
-        this.municipio = obj.getMunicipio();
+       // this.municipio = obj.getId_municipio();
       //  this.id_tenant = obj.getId_tenant();
     }
 
