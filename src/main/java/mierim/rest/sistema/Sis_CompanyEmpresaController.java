@@ -2,14 +2,25 @@ package mierim.rest.sistema;
 
 import lombok.RequiredArgsConstructor;
 import mierim.model.entity.sistema.Sis_CompanyEmpresa;
+import mierim.model.entity.sistema.Sis_CompanyGroup;
 import mierim.model.repository.sistema.Sis_CompanyEmpresaRepository;
+import mierim.rest.dto.Sis_CompanyEmpresaDTO;
+import mierim.rest.dto.Sis_CompanyGroupDTO;
+import mierim.rest.exception.ObjectNotFoundException;
+import mierim.rest.services.Sis_CompanyEmpresaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.servlet.Servlet;
 import javax.validation.Valid;
+import java.net.URI;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
@@ -20,26 +31,32 @@ public class Sis_CompanyEmpresaController {
     @Autowired
     private final Sis_CompanyEmpresaRepository sisCompanyEmpresaRepository;
 
+    @Autowired
+    private Sis_CompanyEmpresaService empresaService;
+
+
     @GetMapping
-    public List<Sis_CompanyEmpresa> findAllCompanyEmpresa(){
-        return sisCompanyEmpresaRepository
-                .findAll();
+    public ResponseEntity<List<Sis_CompanyEmpresaDTO>> findAllTodos(){
+        List<Sis_CompanyEmpresa> list = sisCompanyEmpresaRepository.findAll();
+        List<Sis_CompanyEmpresaDTO> listDTO = list.stream().map(obj -> new Sis_CompanyEmpresaDTO(obj)).collect(Collectors.toList());
+        return ResponseEntity.ok().body(listDTO);
     }
 
-    @GetMapping("{id}")
-    public Sis_CompanyEmpresa findByIdCompanyEmpresa(@PathVariable Long id){
-        return sisCompanyEmpresaRepository
-                .findById(id)
-                .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Empresa não Encontrado"));
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Sis_CompanyEmpresaDTO> findById(@PathVariable Long id){
+        Sis_CompanyEmpresa obj = empresaService.findById(id);
+        return ResponseEntity.ok().body( new Sis_CompanyEmpresaDTO(obj));
     }
+
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Sis_CompanyEmpresa saveCompanyEmpresa(@RequestBody @Valid Sis_CompanyEmpresa sisCompanyEmpresa){
-        return sisCompanyEmpresaRepository
-                .save(sisCompanyEmpresa);
+    public ResponseEntity<Sis_CompanyEmpresaDTO> create(@RequestBody Sis_CompanyEmpresaDTO objDTO){
+        Sis_CompanyEmpresa newObj = empresaService.create(objDTO);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(newObj.getSis_company_group()).toUri();
+        return  ResponseEntity.created(uri).build();
     }
-
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

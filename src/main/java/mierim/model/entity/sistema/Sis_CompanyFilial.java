@@ -1,12 +1,15 @@
 package mierim.model.entity.sistema;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import mierim.model.entity.autocontida.Municipio;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -38,9 +41,6 @@ public class Sis_CompanyFilial {
     private String cep;
     @Column(nullable=false, length=60)
     private String bairro;
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_municipio")
-    private Municipio municipio;
 
     private String id_uf;
 
@@ -51,18 +51,28 @@ public class Sis_CompanyFilial {
     @Column(nullable=false, length=15)
     private String telefone;
     @Column(name = "deletado", length = 1)
-    private String deletado = "2";
+    private String deletado;
+
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @Temporal(TemporalType.DATE)
+    private Date data_inclusao = new Date();
+
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date data_alteracao = new Date();
+
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_municipio")
+    private Municipio municipio;
 
     @NotNull(message = "Preencha o Grupo Econômico!")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant")
-    @JsonBackReference
     private Sis_CompanyGroup sis_company_group;
 
     @NotNull(message = "Preencha Empresa!")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant_company")
-    @JsonBackReference
     private Sis_CompanyEmpresa sis_empresa;
 
 

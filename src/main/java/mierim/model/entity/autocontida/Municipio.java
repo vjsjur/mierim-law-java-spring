@@ -1,14 +1,19 @@
 package mierim.model.entity.autocontida;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import mierim.model.entity.sistema.Sis_CompanyEmpresa;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Data
 @NoArgsConstructor
@@ -33,4 +38,8 @@ public class Municipio implements Serializable {
     private String cod_pais;
     private String sigla_pais;
     private String nome_pais;
+    @JsonIgnore
+    @OneToMany(mappedBy = "municipio")
+    public List<Sis_CompanyEmpresa>  sis_companyEnpresa=  new ArrayList<>();
+
 }

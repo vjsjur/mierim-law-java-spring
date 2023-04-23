@@ -3,13 +3,16 @@ package mierim.rest.sistema;
 import lombok.RequiredArgsConstructor;
 import mierim.model.entity.sistema.Sis_CompanyGroup;
 import mierim.model.repository.sistema.Sis_CompanyGroupRepository;
+import mierim.rest.dto.Sis_CompanyGroupDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
@@ -20,13 +23,15 @@ public class Sis_CompanyGroupController {
     @Autowired
     private final Sis_CompanyGroupRepository sisCompanyGroupRepository;
 
+
     @GetMapping
-    public List<Sis_CompanyGroup> findAllCompanyGroup(){
-        return sisCompanyGroupRepository
-                .findAll();
+    public ResponseEntity<List<Sis_CompanyGroupDTO>> findAllTodos(){
+        List<Sis_CompanyGroup> list = sisCompanyGroupRepository.findAll();
+        List<Sis_CompanyGroupDTO> listDTO = list.stream().map(obj -> new Sis_CompanyGroupDTO(obj)).collect(Collectors.toList());
+        return ResponseEntity.ok().body(listDTO);
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Sis_CompanyGroup findByIdCompanyGroup(@PathVariable Long id){
         return sisCompanyGroupRepository
                 .findById(id)
