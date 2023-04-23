@@ -35,10 +35,10 @@ public class Sis_CompanyEmpresaDTO implements Serializable {
     protected Date data_inclusao = new Date();
     @JsonFormat(pattern = "dd/MM/yyyy")
     protected Date data_alteracao = new Date();
-    protected Municipio municipio;
+    protected Integer id_municipio;
+    protected String id_municipio_nome;
     protected Long id_tenant ;
     protected String id_tenant_nome;
-
 
     public Sis_CompanyEmpresaDTO (){
 
@@ -62,7 +62,8 @@ public class Sis_CompanyEmpresaDTO implements Serializable {
         this.status = obj.getStatus();
         this.data_inclusao = obj.getData_inclusao();
         this.data_alteracao = obj.getData_alteracao();
-        this.municipio = obj.getMunicipio();
+        this.id_municipio = obj.getMunicipio().getId();
+        this.id_municipio_nome = obj.getMunicipio().getNome_mun();
         this.id_tenant = obj.getSis_company_group().getId_tenant();
         this.id_tenant_nome = obj.getSis_company_group().getNome();
     }
@@ -75,15 +76,21 @@ public class Sis_CompanyEmpresaDTO implements Serializable {
         this.id_tenant_company = id_tenant_company;
     }
 
-    public Municipio getMunicipio() {
-        return municipio;
+    public Integer getId_municipio() {
+        return id_municipio;
     }
 
-    public void setMunicipio(Municipio municipio) {
-        this.municipio = municipio;
+    public void setId_municipio(Integer id_municipio) {
+        this.id_municipio = id_municipio;
     }
 
+    public String getId_municipio_nome() {
+        return id_municipio_nome;
+    }
 
+    public void setId_municipio_nome(String id_municipio_nome) {
+        this.id_municipio_nome = id_municipio_nome;
+    }
 
     public Long getCpf_cnpj() {
         return cpf_cnpj;
