@@ -4,12 +4,12 @@ import javax.persistence.Id;
 
 public class MunicipioDTO {
 
-    public Integer id;
+    public Long id;
     public String cod_mun;
     public String cod_mun_comp;
     public String nome_mun;
 
-    public MunicipioDTO(Integer id, String cod_mun, String cod_mun_comp, String nome_mun) {
+    public MunicipioDTO(Long id, String cod_mun, String cod_mun_comp, String nome_mun) {
         this.id = id;
         this.cod_mun = cod_mun;
         this.cod_mun_comp = cod_mun_comp;

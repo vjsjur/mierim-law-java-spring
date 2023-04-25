@@ -1,6 +1,8 @@
 package mierim.rest.sistema;
 
 import lombok.RequiredArgsConstructor;
+import mierim.model.entity.juridico.Jur_AreaJuridica;
+import mierim.model.entity.juridico.Jur_TipoPedido;
 import mierim.model.entity.sistema.Sis_CompanyEmpresa;
 import mierim.model.entity.sistema.Sis_CompanyGroup;
 import mierim.model.repository.sistema.Sis_CompanyEmpresaRepository;
@@ -34,6 +36,12 @@ public class Sis_CompanyEmpresaController {
     @Autowired
     private Sis_CompanyEmpresaService empresaService;
 
+    @GetMapping("/listar_todos")
+    public List<Sis_CompanyEmpresa> listarTodos(){
+        return sisCompanyEmpresaRepository.findAll();
+    }
+
+
 
     @GetMapping
     public ResponseEntity<List<Sis_CompanyEmpresaDTO>> findAllTodos(){
@@ -52,10 +60,9 @@ public class Sis_CompanyEmpresaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Sis_CompanyEmpresaDTO> create(@RequestBody Sis_CompanyEmpresaDTO objDTO){
-        Sis_CompanyEmpresa newObj = empresaService.create(objDTO);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(newObj.getSis_company_group()).toUri();
-        return  ResponseEntity.created(uri).build();
+    public Sis_CompanyEmpresa salvar(@RequestBody @Valid Sis_CompanyEmpresa empresa){
+        return sisCompanyEmpresaRepository
+                .save(empresa);
     }
 
     @PutMapping("{id}")

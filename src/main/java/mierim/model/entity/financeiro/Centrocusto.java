@@ -1,10 +1,12 @@
 package mierim.model.entity.financeiro;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import mierim.model.entity.faturamento.Escritorio;
+import mierim.model.entity.faturamento.Profissional;
 import mierim.model.entity.sistema.Sis_CompanyEmpresa;
 import mierim.model.entity.sistema.Sis_CompanyFilial;
 import mierim.model.entity.sistema.Sis_CompanyGroup;
@@ -12,6 +14,7 @@ import mierim.model.entity.sistema.Sis_Usuario;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.*;
@@ -30,7 +33,7 @@ public class Centrocusto implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @NotEmpty(message = "PREENCHA O CÓDIGO!")
     private String codigo;
@@ -80,6 +83,15 @@ public class Centrocusto implements Serializable {
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant_filial")
     private Sis_CompanyFilial sis_filial;
+
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////Retorno dos relacionamentos/////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "centrocusto")
+    private List<Profissional> profissional;
 
 
     @Override

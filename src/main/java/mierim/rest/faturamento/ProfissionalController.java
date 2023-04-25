@@ -2,14 +2,19 @@ package mierim.rest.faturamento;
 
 import lombok.RequiredArgsConstructor;
 import mierim.model.entity.faturamento.Profissional;
+import mierim.model.entity.sistema.Sis_CompanyEmpresa;
 import mierim.model.repository.faturamento.ProfissionalRepository;
+import mierim.rest.dto.ProfissionalDTO;
+import mierim.rest.dto.Sis_CompanyEmpresaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
@@ -20,10 +25,17 @@ public class ProfissionalController {
     @Autowired
     private final ProfissionalRepository profissionalRepository;
 
-    @GetMapping
+    @GetMapping("/listar_todos")
     public List<Profissional> listarTodos(){
         return profissionalRepository
                 .findAll();
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ProfissionalDTO>> findAllTodos(){
+        List<Profissional> list = profissionalRepository.findAll();
+        List<ProfissionalDTO> listDTO = list.stream().map(obj -> new ProfissionalDTO(obj)).collect(Collectors.toList());
+        return ResponseEntity.ok().body(listDTO);
     }
 
     @GetMapping("{id}")

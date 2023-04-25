@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import mierim.model.entity.faturamento.Profissional;
 import mierim.rest.dto.Sis_CompanyGroupDTO;
 
 
@@ -57,6 +58,14 @@ public class Sis_CompanyGroup {
     @JsonIgnore
     @OneToMany(mappedBy = "sis_company_group")
     private List<Sis_CompanyFilial> sis_company_filial;
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////Retorno dos relacionamentos/////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "sis_group")
+    private List<Profissional> profissional;
 
 
     public Sis_CompanyGroup(Sis_CompanyGroupDTO objTDO) {

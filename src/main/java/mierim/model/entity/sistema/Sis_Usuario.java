@@ -3,6 +3,7 @@ package mierim.model.entity.sistema;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -12,10 +13,12 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import mierim.model.entity.faturamento.Profissional;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -69,4 +72,21 @@ public class Sis_Usuario implements Serializable {
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant_filial")
     private Sis_CompanyFilial sis_filial;
+
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////Retorno dos relacionamentos/////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "sis_usuario_inclusao")
+    private List<Profissional> profissional_inclusao;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "sis_usuario_alteracao")
+    private List<Profissional> profissional_alteracao;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "sis_usuario")
+    private List<Profissional> profissional;
 }

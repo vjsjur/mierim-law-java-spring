@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="mierim" target="1.8" />
+      <module name="mierim" target="16" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

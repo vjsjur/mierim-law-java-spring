@@ -27,7 +27,7 @@ public class MunicipioController {
     }
 
     @GetMapping("{id}")
-    public Municipio acharPorId(@PathVariable Integer id){
+    public Municipio acharPorId(@PathVariable Long id){
         return municipioRepository
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Municipio não Encontrado"));
@@ -68,7 +68,7 @@ public class MunicipioController {
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void atualizarDadosMunicipio(@PathVariable Integer id, @RequestBody Municipio municipioAtualizado){
+    public void atualizarDadosMunicipio(@PathVariable Long id, @RequestBody Municipio municipioAtualizado){
         municipioRepository
                 .findById(id)
                 .map(municipio -> {
@@ -82,7 +82,7 @@ public class MunicipioController {
 
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void excluir(@PathVariable Integer id){
+    public void excluir(@PathVariable Long id){
         municipioRepository
                 .findById(id)
                 .map(municipio -> {

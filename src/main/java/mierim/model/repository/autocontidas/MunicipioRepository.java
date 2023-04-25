@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface MunicipioRepository extends JpaRepository<Municipio, Integer> {
+public interface MunicipioRepository extends JpaRepository<Municipio, Long> {
 
     @Query(" select s from cad_municipio s where upper( s.sigla_uf ) like upper( :siglauf ) " )
     List<Municipio> findBySiglaUfMunicipio(@Param("siglauf") String siglauf);

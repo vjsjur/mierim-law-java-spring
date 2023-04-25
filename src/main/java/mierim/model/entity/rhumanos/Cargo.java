@@ -5,10 +5,12 @@ package mierim.model.entity.rhumanos;
  * @Date 20190921
  * @version 2020.0.0
  */
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import mierim.model.entity.faturamento.Profissional;
 import mierim.model.entity.sistema.Sis_CompanyEmpresa;
 import mierim.model.entity.sistema.Sis_CompanyFilial;
 import mierim.model.entity.sistema.Sis_CompanyGroup;
@@ -16,6 +18,7 @@ import mierim.model.entity.sistema.Sis_Usuario;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.*;
 
@@ -33,7 +36,7 @@ public class Cargo implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @NotEmpty(message = "PREENCHA A DESCRIÇÃO!")
     private String descricao;
@@ -75,6 +78,15 @@ public class Cargo implements Serializable {
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant_filial")
     private Sis_CompanyFilial sis_filial;
+
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////Retorno dos relacionamentos/////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "cargo")
+    private List<Profissional> profissional;
 
 
 

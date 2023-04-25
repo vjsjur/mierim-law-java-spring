@@ -1,20 +1,19 @@
 package mierim.model.entity.faturamento;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import mierim.model.entity.autocontida.Municipio;
-import mierim.model.entity.sistema.Sis_CompanyEmpresa;
-import mierim.model.entity.sistema.Sis_CompanyFilial;
-import mierim.model.entity.sistema.Sis_CompanyGroup;
-import mierim.model.entity.sistema.Sis_Usuario;
+import mierim.model.entity.sistema.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Data
@@ -28,7 +27,7 @@ public class Escritorio implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @NotEmpty(message = "PREENCHA O CÓDIGO!")
     private String codigo;
@@ -97,12 +96,19 @@ public class Escritorio implements Serializable {
     @JoinColumn(name = "id_tenant_filial")
     private Sis_CompanyFilial sis_filial;
 
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////Retorno dos relacionamentos/////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+    @JsonIgnore
+    @OneToMany(mappedBy = "escritorio")
+    private List<Profissional> profissional;
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Escritorio)) return false;
-        Escritorio that = (Escritorio) o;
-        return getId().equals(that.getId());
+        if (!(o instanceof Escritorio that)) return false;
+        return Objects.equals(getId(), that.getId());
     }
 
     @Override

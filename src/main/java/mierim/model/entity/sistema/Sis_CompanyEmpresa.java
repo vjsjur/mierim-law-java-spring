@@ -4,6 +4,7 @@ package mierim.model.entity.sistema;
 import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import mierim.model.entity.autocontida.Municipio;
+import mierim.model.entity.faturamento.Profissional;
 import mierim.rest.dto.Sis_CompanyEmpresaDTO;
 
 import javax.persistence.*;
@@ -80,6 +81,14 @@ public class Sis_CompanyEmpresa {
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant")
     private Sis_CompanyGroup sis_company_group;
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////Retorno dos relacionamentos/////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "sis_empresa")
+    private List<Profissional> profissional;
 
     @JsonIgnore
     @OneToMany(mappedBy = "sis_empresa")

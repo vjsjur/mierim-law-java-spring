@@ -2,9 +2,11 @@ package mierim.model.entity.sistema;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import mierim.model.entity.autocontida.Municipio;
+import mierim.model.entity.faturamento.Profissional;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -74,6 +76,15 @@ public class Sis_CompanyFilial {
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant_company")
     private Sis_CompanyEmpresa sis_empresa;
+
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////Retorno dos relacionamentos/////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "sis_filial")
+    private List<Profissional> profissional;
 
 
     @Override
