@@ -107,8 +107,9 @@ public class Escritorio implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Escritorio that)) return false;
-        return Objects.equals(getId(), that.getId());
+        if (!(o instanceof Escritorio)) return false;
+        Escritorio escritorio = (Escritorio) o;
+        return getId().equals(escritorio.getId());
     }
 
     @Override
