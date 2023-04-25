@@ -68,6 +68,8 @@ public class ProfissionalController {
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Profissional não Encontrada"));
     }
 
+
+
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void excluir(@PathVariable Long id){
