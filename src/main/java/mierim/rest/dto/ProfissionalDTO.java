@@ -97,6 +97,7 @@ public class ProfissionalDTO {
 
     }
 
+
     public ProfissionalDTO(Profissional obj) {
         this.id = obj.getId();
         this.nome = obj.getNome();
