@@ -25,8 +25,6 @@ public class ProfissionalController {
     @Autowired
     private final ProfissionalRepository profissionalRepository;
 
-
-
     @GetMapping("listar_todos/")
     public List<Profissional> listarTodos(){
         return profissionalRepository
