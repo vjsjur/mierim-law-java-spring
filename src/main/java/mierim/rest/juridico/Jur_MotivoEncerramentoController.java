@@ -15,7 +15,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/jur_motivo_encerramento")
+@RequestMapping("/api/jur_motivo_encerramento/")
 @RequiredArgsConstructor
 public class Jur_MotivoEncerramentoController{
 

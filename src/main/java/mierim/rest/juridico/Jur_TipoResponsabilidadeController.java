@@ -13,7 +13,7 @@ package mierim.rest.juridico;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/jur_tiporesponsabilidade")
+@RequestMapping("/api/jur_tiporesponsabilidade/")
 @RequiredArgsConstructor
 public class Jur_TipoResponsabilidadeController {
 

@@ -15,7 +15,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/atividadetimesheet")
+@RequestMapping("/api/atividadetimesheet/")
 @RequiredArgsConstructor
 public class AtividadeTimesheetController {
 

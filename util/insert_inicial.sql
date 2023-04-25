@@ -449,7 +449,7 @@ values
     (254, 1, '15', 'PA', 'Pará', '06', 'Sudeste Paraense', '017', 'Paragominas', '06187', '1506187', 'Rondon do Pará'),
     (255, 1, '15', 'PA', 'Pará', '05', 'Sudoeste Paraense', '014', 'Itaituba', '06195', '1506195', 'Rurópolis'),
     (256, 1, '15', 'PA', 'Pará', '04', 'Nordeste Paraense', '009', 'Salgado', '06203', '1506203', 'Salinópolis'),
-    (257, 1, '15', 'PA', 'Pará', '02', 'Marajó', '006', 'Arari', '06302', '1506302', 'Salvaterra'),
+    (257, 1, '15', 'PA', 'Pará', '02', 'Marajó', '006', 'Arari', '06302', '1506302', 'salvarerra'),
     (258, 1, '15', 'PA', 'Pará', '03', 'Metropolitana de Belém', '007', 'Belém', '06351', '1506351', 'Santa Bárbara do Pará'),
     (259, 1, '15', 'PA', 'Pará', '02', 'Marajó', '006', 'Arari', '06401', '1506401', 'Santa Cruz do Arari'),
     (260, 1, '15', 'PA', 'Pará', '03', 'Metropolitana de Belém', '008', 'Castanhal', '06500', '1506500', 'Santa Izabel do Pará'),

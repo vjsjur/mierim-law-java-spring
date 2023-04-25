@@ -33,7 +33,7 @@ public class CasoController {
     }
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Caso salvat(@RequestBody @Valid Caso caso){
+    public Caso salvar(@RequestBody @Valid Caso caso){
         return casoRepository
                 .save(caso);
     }
