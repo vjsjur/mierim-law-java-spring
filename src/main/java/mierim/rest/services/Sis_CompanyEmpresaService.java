@@ -29,18 +29,5 @@ public class Sis_CompanyEmpresaService {
         Sis_CompanyEmpresa newObj = new Sis_CompanyEmpresa(objTDO);
         return sisCompanyEmpresaRepository.save(newObj);
     }
-/*
-    private Sis_CompanyEmpresa newGroup(Sis_CompanyEmpresaDTO obj){
-        Sis_CompanyGroup companyGroup =  groupService.findById(obj.getGrupo_economico());
-
-        Sis_CompanyEmpresa empresa = new Sis_CompanyEmpresa();
-        if (obj.setId_tenant_company() != null){
-            empresa.setSis_company_group(obj.getId_tenant());
-        }
-    }
-
- */
-
-
 
 }

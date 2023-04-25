@@ -6,6 +6,8 @@ import mierim.model.entity.sistema.Sis_CompanyEmpresa;
 import mierim.model.repository.faturamento.ProfissionalRepository;
 import mierim.rest.dto.ProfissionalDTO;
 import mierim.rest.dto.Sis_CompanyEmpresaDTO;
+import mierim.rest.services.ProfissionalService;
+import mierim.rest.services.Sis_CompanyEmpresaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,9 @@ import java.util.stream.Collectors;
 public class ProfissionalController {
 
     @Autowired
+    private ProfissionalService profissionalService;
+
+    @Autowired
     private final ProfissionalRepository profissionalRepository;
 
     @GetMapping("listar_todos/")
@@ -38,11 +43,12 @@ public class ProfissionalController {
         return ResponseEntity.ok().body(listDTO);
     }
 
-    @GetMapping("{id}")
-    public Profissional acharPorId(@PathVariable Long id){
-        return profissionalRepository
-                .findById(id)
-                .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Profissional não Encontrado"));
+
+
+    @GetMapping(value = "{id}")
+    public ResponseEntity<ProfissionalDTO> findById(@PathVariable Long id){
+        Profissional obj = profissionalService.findById(id);
+        return ResponseEntity.ok().body( new ProfissionalDTO(obj));
     }
 
     @PostMapping

@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/company_empresa")
+@RequestMapping("/api/company_empresa/")
 @RequiredArgsConstructor
 public class Sis_CompanyEmpresaController {
 
@@ -35,12 +35,6 @@ public class Sis_CompanyEmpresaController {
 
     @Autowired
     private Sis_CompanyEmpresaService empresaService;
-
-    @GetMapping("/listar_todos")
-    public List<Sis_CompanyEmpresa> listarTodos(){
-        return sisCompanyEmpresaRepository.findAll();
-    }
-
 
 
     @GetMapping
@@ -51,7 +45,7 @@ public class Sis_CompanyEmpresaController {
     }
 
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "{id}")
     public ResponseEntity<Sis_CompanyEmpresaDTO> findById(@PathVariable Long id){
         Sis_CompanyEmpresa obj = empresaService.findById(id);
         return ResponseEntity.ok().body( new Sis_CompanyEmpresaDTO(obj));

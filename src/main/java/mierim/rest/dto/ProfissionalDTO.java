@@ -18,6 +18,7 @@ import mierim.model.entity.sistema.Sis_Usuario;
 
 import javax.persistence.*;
 import java.util.Date;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -36,7 +37,7 @@ public class ProfissionalDTO {
     protected Date data_demissao;
     protected String tipo;
     protected String sexo;
-    protected Long id_municipio;
+    protected Long id_municipio = 0L;
     protected Municipio municipio;
     protected String id_uf;
     protected String id_pais;
@@ -56,7 +57,7 @@ public class ProfissionalDTO {
     protected String rg;
     protected String carteira_trabalho;
     protected String pis;
-    protected String juiz ;
+    protected String juiz;
     protected String email;
     protected String telefone;
     protected String celular;
@@ -72,7 +73,7 @@ public class ProfissionalDTO {
     protected String participa_rateio_despesa;
     protected String tecnico;
     protected String tempo_disponivel;
-    protected String deletado ;
+    protected String deletado;
 
     protected Cargo cargo;
     protected Long id_cargo;
@@ -85,7 +86,7 @@ public class ProfissionalDTO {
     protected Sis_Usuario sis_usuario_inclusao;
     protected Long id_usuario_inclusao;
     @JsonFormat(pattern = "dd/MM/yyyy")
-    protected Date data_inclusao ;
+    protected Date data_inclusao;
     protected Sis_Usuario sis_usuario_alteracao;
     protected Long id_usuario_alteracao;
     @JsonFormat(pattern = "dd/MM/yyyy")
@@ -93,7 +94,7 @@ public class ProfissionalDTO {
     protected Sis_Usuario sis_usuario;
     protected Long id_usuario;
 
-    public ProfissionalDTO(){
+    public ProfissionalDTO() {
 
     }
 
@@ -109,13 +110,23 @@ public class ProfissionalDTO {
         this.data_demissao = obj.getData_demissao();
         this.tipo = obj.getTipo();
         this.sexo = obj.getSexo();
-        this.id_municipio = obj.getMunicipio().getId();
-        this.id_uf = obj.getMunicipio().getCod_uf();
-        this.id_pais = obj.getMunicipio().getNome_pais();
-        this.id_categoria = obj.getCategoria().getId();
-        this.id_escritorio = obj.getEscritorio().getId();
-        this.id_departamento = obj.getDepartamento().getId();
-        this.id_centrocusto = obj.getCentrocusto().getId();
+        if (obj.getMunicipio() != null) {
+            this.id_municipio = obj.getMunicipio().getId();
+            this.id_uf = obj.getMunicipio().getCod_uf();
+            this.id_pais = obj.getMunicipio().getNome_pais();
+        }
+        if (obj.getCategoria() != null) {
+            this.id_categoria = obj.getCategoria().getId();
+        }
+        if (obj.getEscritorio() != null) {
+            this.id_escritorio = obj.getEscritorio().getId();
+        }
+        if (obj.getDepartamento() != null) {
+            this.id_departamento = obj.getDepartamento().getId();
+        }
+        if (obj.getCentrocusto() != null) {
+            this.id_centrocusto = obj.getCentrocusto().getId();
+        }
         this.endereco = obj.getEndereco();
         this.bairro = obj.getBairro();
         this.cep = obj.getCep();
@@ -125,7 +136,7 @@ public class ProfissionalDTO {
         this.rg = obj.getRg();
         this.carteira_trabalho = obj.getCarteira_trabalho();
         this.pis = obj.getPis();
-        this.juiz  = obj.getJuiz();
+        this.juiz = obj.getJuiz();
         this.email = obj.getEmail();
         this.telefone = obj.getTelefone();
         this.celular = obj.getCelular();
@@ -142,14 +153,28 @@ public class ProfissionalDTO {
         this.tecnico = obj.getTecnico();
         this.tempo_disponivel = obj.getTempo_disponivel();
         this.deletado = obj.getDeletado();
-        this.id_cargo = obj.getCargo().getId() ;
-        this.id_tenant = obj.getSis_group().getId_tenant();
-        this.id_tenant_empresa = obj.getSis_empresa().getId_tenant_company();
-        this.id_tenant_filial = obj.getSis_filial().getId_tenant_filial();
-        this.id_usuario_inclusao = obj.getSis_usuario_inclusao().getId();
+        if (obj.getCargo() != null) {
+            this.id_cargo = obj.getCargo().getId();
+        }
+        if (obj.getSis_group() != null) {
+            this.id_tenant = obj.getSis_group().getId_tenant();
+        }
+        if (obj.getSis_empresa() != null) {
+            this.id_tenant_empresa = obj.getSis_empresa().getId_tenant_company();
+        }
+        if (obj.getSis_filial() != null) {
+            this.id_tenant_filial = obj.getSis_filial().getId_tenant_filial();
+        }
+        if (obj.getSis_usuario_inclusao() != null) {
+            this.id_usuario_inclusao = obj.getSis_usuario_inclusao().getId();
+        }
         this.data_inclusao = obj.getData_inclusao();
-        this.id_usuario_alteracao = obj.getSis_usuario_alteracao().getId();
+        if (obj.getSis_usuario_alteracao() != null) {
+            this.id_usuario_alteracao = obj.getSis_usuario_alteracao().getId();
+        }
         this.data_alteracao = obj.getData_alteracao();
-        this.id_usuario = obj.getSis_usuario().getId();
+        if (obj.getSis_usuario() != null) {
+            this.id_usuario = obj.getSis_usuario().getId();
+        }
     }
 }

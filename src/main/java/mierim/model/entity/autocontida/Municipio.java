@@ -23,7 +23,7 @@ import javax.persistence.OneToMany;
 public class Municipio implements Serializable {
 
     @Id
-    private Long id;
+    private Long id ;
     private Integer id_rec_status;
     private String cod_uf;
     private String sigla_uf;
@@ -34,7 +34,7 @@ public class Municipio implements Serializable {
     private String nome_micror;
     private String cod_mun;
     private String cod_mun_comp;
-    private String nome_mun;
+    private String nome_mun = "";
     private String cod_pais;
     private String sigla_pais;
     private String nome_pais;
@@ -42,4 +42,17 @@ public class Municipio implements Serializable {
     @OneToMany(mappedBy = "municipio")
     public List<Sis_CompanyEmpresa>  sis_companyEnpresa=  new ArrayList<>();
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Municipio)) return false;
+        Municipio municipio = (Municipio) o;
+        return getId().equals(municipio.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
 }

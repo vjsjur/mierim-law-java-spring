@@ -13,6 +13,7 @@ import mierim.model.entity.sistema.Sis_CompanyEmpresa;
 import mierim.model.entity.sistema.Sis_CompanyFilial;
 import mierim.model.entity.sistema.Sis_CompanyGroup;
 import mierim.model.entity.sistema.Sis_Usuario;
+import mierim.rest.dto.ProfissionalDTO;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -195,6 +196,9 @@ public class Profissional implements Serializable {
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_usuario")
     private Sis_Usuario sis_usuario;
+
+    public Profissional(ProfissionalDTO objTDO) {
+    }
 
     @Override
     public int hashCode() {
