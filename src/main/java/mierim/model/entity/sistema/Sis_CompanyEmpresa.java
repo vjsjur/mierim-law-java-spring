@@ -5,11 +5,9 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import mierim.model.entity.autocontida.Municipio;
 import mierim.model.entity.faturamento.Profissional;
-import mierim.rest.dto.Sis_CompanyEmpresaDTO;
+import mierim.rest.dto.sistema.Sis_CompanyEmpresaDTO;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -21,12 +19,6 @@ import java.util.Objects;
 @AllArgsConstructor
 @Builder
 @Entity(name = "sis_company_empresa")
-@Table(uniqueConstraints =
-        {
-                @UniqueConstraint(columnNames = {"id_tenant_company","id_tenant", "deletado"}, name = "company_tenant_uk"),
-                @UniqueConstraint(columnNames = {"id_tenant_company","id_tenant", "deletado", "cpf_cnpj"}, name = "company_cpf_cnpj_uk")
-        }
-)
 
 public class Sis_CompanyEmpresa {
     @Id
@@ -73,12 +65,12 @@ public class Sis_CompanyEmpresa {
     @JsonFormat(pattern = "dd/MM/yyyy")
     @Temporal(TemporalType.DATE)
     private Date data_alteracao = new Date();
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "id_municipio")
     private Municipio municipio;
 
 
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "id_tenant")
     private Sis_CompanyGroup sis_company_group;
 

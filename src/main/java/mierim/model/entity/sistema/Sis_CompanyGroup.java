@@ -8,15 +8,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import mierim.model.entity.faturamento.Profissional;
-import mierim.rest.dto.Sis_CompanyGroupDTO;
 
 
 import javax.persistence.*;
-import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 @Data
 @NoArgsConstructor
@@ -51,23 +47,18 @@ public class Sis_CompanyGroup {
     @Temporal(TemporalType.DATE)
     private Date data_alteracao = new Date();
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "sis_company_group")
-    private List<Sis_CompanyEmpresa> sis_company_empresa;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "sis_company_group")
-    private List<Sis_CompanyFilial> sis_company_filial;
 
     /////////////////////////////////////////////////////////////////////////////
     /////////////////////////Retorno dos relacionamentos/////////////////////////
     /////////////////////////////////////////////////////////////////////////////
 
     @JsonIgnore
+    @OneToMany(mappedBy = "sis_company_group")
+    private List<Sis_CompanyEmpresa> sis_company_empresa;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "sis_group")
     private List<Profissional> profissional;
 
 
-    public Sis_CompanyGroup(Sis_CompanyGroupDTO objTDO) {
-    }
 }

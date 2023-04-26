@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import mierim.model.entity.sistema.Sis_CompanyEmpresa;
+import mierim.model.entity.sistema.User;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -40,7 +41,7 @@ public class Municipio implements Serializable {
     private String nome_pais;
     @JsonIgnore
     @OneToMany(mappedBy = "municipio")
-    public List<Sis_CompanyEmpresa>  sis_companyEnpresa=  new ArrayList<>();
+    public List<Sis_CompanyEmpresa>  sis_company_enpresa;
 
 
     @Override

@@ -1,4 +1,4 @@
-package mierim.rest.dto;
+package mierim.rest.dto.sistema;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -16,7 +16,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class Sis_CompanyEmpresaDTO implements Serializable {
 
-    private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = 1L;
 
     protected Long id_tenant_company;
     protected Long cpf_cnpj;
@@ -74,8 +74,6 @@ public class Sis_CompanyEmpresaDTO implements Serializable {
         }
     }
 
-    public Long getId_tenant_company() {
-        return id_tenant_company;
-    }
+
 
 }

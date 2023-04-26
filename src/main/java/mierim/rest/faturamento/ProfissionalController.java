@@ -2,12 +2,9 @@ package mierim.rest.faturamento;
 
 import lombok.RequiredArgsConstructor;
 import mierim.model.entity.faturamento.Profissional;
-import mierim.model.entity.sistema.Sis_CompanyEmpresa;
 import mierim.model.repository.faturamento.ProfissionalRepository;
 import mierim.rest.dto.ProfissionalDTO;
-import mierim.rest.dto.Sis_CompanyEmpresaDTO;
 import mierim.rest.services.ProfissionalService;
-import mierim.rest.services.Sis_CompanyEmpresaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
