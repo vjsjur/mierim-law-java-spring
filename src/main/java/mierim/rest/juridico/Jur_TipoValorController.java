@@ -15,7 +15,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/jur_tipovalor")
+@RequestMapping("/api/jur_tipovalor/")
 @RequiredArgsConstructor
 public class Jur_TipoValorController {
 

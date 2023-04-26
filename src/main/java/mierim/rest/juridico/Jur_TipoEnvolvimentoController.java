@@ -13,7 +13,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/jur_tipoenvolvimento")
+@RequestMapping("/api/jur_tipoenvolvimento/")
 @RequiredArgsConstructor
 public class Jur_TipoEnvolvimentoController{
 

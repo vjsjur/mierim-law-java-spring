@@ -13,7 +13,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/jur_tipocompromisso")
+@RequestMapping("/api/jur_tipocompromisso/")
 @RequiredArgsConstructor
 public class Jur_TipoCompomissoController{
 

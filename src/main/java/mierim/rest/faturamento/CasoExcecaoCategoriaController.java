@@ -33,7 +33,7 @@ public class CasoExcecaoCategoriaController {
     }
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CasoExcecaoCategoria salvat(@RequestBody @Valid CasoExcecaoCategoria casoExcecaoCategoria){
+    public CasoExcecaoCategoria salvar(@RequestBody @Valid CasoExcecaoCategoria casoExcecaoCategoria){
         return casoExcecaoCategoriaRepository
                 .save(casoExcecaoCategoria);
     }

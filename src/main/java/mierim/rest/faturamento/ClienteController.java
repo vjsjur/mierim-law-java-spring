@@ -13,7 +13,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/cliente")
+@RequestMapping("/api/cliente/")
 @RequiredArgsConstructor
 public class ClienteController {
 

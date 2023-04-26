@@ -1,8 +1,8 @@
 package mierim.rest.faturamento;
 
 import lombok.RequiredArgsConstructor;
-import mierim.model.entity.faturamento.CasoExcecaoProfissional;
-import mierim.model.repository.faturamento.CasoExcecaoProfissionalRepository;
+import mierim.model.entity.faturamento.CasoParticipacao;
+import mierim.model.repository.faturamento.CasoParticipacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,40 +14,40 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/casoexcecaoprofissional/")
-public class CasoExcecaoProfissionalController {
+@RequestMapping("/api/casoparticipacao/")
+public class CasoParticipacaoController {
 
     @Autowired
-    private final CasoExcecaoProfissionalRepository casoExcecaoProfissionalRepository;
+    private final CasoParticipacaoRepository casoParticipacaoRepository;
 
     @GetMapping
-    public List<CasoExcecaoProfissional> listartodos(){
-        return casoExcecaoProfissionalRepository
+    public List<CasoParticipacao> listartodos(){
+        return casoParticipacaoRepository
                 .findAll();
     }
     @GetMapping("{id}")
-    public CasoExcecaoProfissional acharPorId(@PathVariable Integer id){
-        return casoExcecaoProfissionalRepository
+    public CasoParticipacao acharPorId(@PathVariable Integer id){
+        return casoParticipacaoRepository
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Caso não Encontrado"));
     }
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CasoExcecaoProfissional salvar(@RequestBody @Valid CasoExcecaoProfissional casoExcecaoProfissional){
-        return casoExcecaoProfissionalRepository
-                .save(casoExcecaoProfissional);
+    public CasoParticipacao salvar(@RequestBody @Valid CasoParticipacao casoParticipacao){
+        return casoParticipacaoRepository
+                .save(casoParticipacao);
     }
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void atualizarDadosCaso(@PathVariable Integer id, @RequestBody CasoExcecaoProfissional casoExcecaoProfissionalAtualizado){
-        casoExcecaoProfissionalRepository
+    public void atualizarDadosCaso(@PathVariable Integer id, @RequestBody CasoParticipacao casoParticipacaoAtualizado){
+        casoParticipacaoRepository
                 .findById(id)
                 .map(caso -> {
-                    casoExcecaoProfissionalAtualizado
+                    casoParticipacaoAtualizado
                             .setId(caso.getId());
-                    return casoExcecaoProfissionalRepository
-                            .save(casoExcecaoProfissionalAtualizado);
+                    return casoParticipacaoRepository
+                            .save(casoParticipacaoAtualizado);
                 })
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Caso não Localizado"));
     }
@@ -55,10 +55,10 @@ public class CasoExcecaoProfissionalController {
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void excluir(@PathVariable Integer id){
-        casoExcecaoProfissionalRepository
+        casoParticipacaoRepository
                 .findById(id)
                 .map(caso -> {
-                    casoExcecaoProfissionalRepository.delete(caso);
+                    casoParticipacaoRepository.delete(caso);
                     return Void.TYPE;
                 })
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Caso não Encontrado"));
