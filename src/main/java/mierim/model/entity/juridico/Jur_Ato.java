@@ -32,7 +32,8 @@ public class Jur_Ato implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "id_fase")
-    private Jur_Fase id_fase;
+    private Jur_Fase jur_fase;
+
     private String status = "1";
     private String deletado = "2";
 
@@ -55,7 +56,7 @@ public class Jur_Ato implements Serializable {
     @NotNull(message = "Preencha o Grupo Econômico!")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant")
-    private Sis_CompanyGroup sis_company_group;
+    private Sis_CompanyGroup sis_group;
 
     @NotNull(message = "Preencha a Empresa!")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)

@@ -28,11 +28,11 @@ public class Jur_AtoPerfil implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "id_ato")
-    private Jur_Ato id_ato;
+    private Jur_Ato jur_ato;
 
     @ManyToOne
     @JoinColumn(name = "id_perfil")
-    private Sis_Perfil id_perfil;
+    private Sis_Perfil sis_perfil;
     private String status ;
     private String deletado ;
     private String juridico;
@@ -57,7 +57,7 @@ public class Jur_AtoPerfil implements Serializable {
     @NotNull(message = "Preencha o Grupo Econômico!")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant")
-    private Sis_CompanyGroup sis_company_group;
+    private Sis_CompanyGroup sis_group;
 
     @NotNull(message = "Preencha a Empresa!")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)

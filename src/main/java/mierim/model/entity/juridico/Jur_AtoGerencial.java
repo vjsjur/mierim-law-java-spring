@@ -50,7 +50,7 @@ public class Jur_AtoGerencial implements Serializable {
     @NotNull(message = "Preencha o Grupo Econômico!")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_tenant")
-    private Sis_CompanyGroup sis_company_group;
+    private Sis_CompanyGroup sis_group;
 
     @NotNull(message = "Preencha a Empresa!")
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
