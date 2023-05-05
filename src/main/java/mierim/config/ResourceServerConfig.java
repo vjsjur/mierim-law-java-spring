@@ -24,18 +24,18 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                         "/api/casoparticipacao/**",
                         "/api/categoria/**",
                         "/api/cliente/**",
-                        "/api/jur_objeto/",
-                        "/api/jur_tipocompromisso/",
-                        "/api/jur_tipoenvolvimento/",
-                        "/api/jur_tipopedido/",
-                        "/api/jur_tiporesponsabilidade/",
-                        "/api/jur_tipovalor/",
-                        "/api/jur_motivo_encerramento/",
-                        "/api/jur_area_juridica/",
-                        "/api/profissional/",
-                        "/api/municipio/",
-                        "/api/company_empresa/",
-                        "/api/company_group/"
+                        "/api/jur_objeto/**",
+                        "/api/jur_tipocompromisso/**",
+                        "/api/jur_tipoenvolvimento/**",
+                        "/api/jur_tipopedido/**",
+                        "/api/jur_tiporesponsabilidade/**",
+                        "/api/jur_tipovalor/**",
+                        "/api/jur_motivo_encerramento/**",
+                        "/api/jur_area_juridica/**",
+                        "/api/profissional/**",
+                        "/api/municipio/**",
+                        "/api/company_empresa/**",
+                        "/api/company_group/**"
                         ).authenticated()
                 .anyRequest().denyAll();
 
